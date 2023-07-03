@@ -32,7 +32,7 @@ export default function StarWarsGalery() {
     }, []);
 
     return (
-        <section className=" mt-4 md:mt-8">
+        <section>
             <div className="flex justify-between items-center">
                 <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
                     Star Wars

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
     return (
-        <section className=" w-full bg-section-background flex flex-col justify-center md:flex-row gap-8 xl:gap-32 p-4 mt-4 md:mt-8 md:p-8">
+        <section className=" w-full bg-section-background flex flex-col justify-center md:flex-row gap-8 xl:gap-32 p-4 mt-4 md:mt-8 lg:mt-16 md:p-8">
             <div className=" flex flex-col items-center gap-4 xl:gap-40 md:items-start xl:flex-row">
                 <img className=" justify-center" src="images/contactLogo.svg" alt="contact logo" />
                 <div className=" flex flex-col gap-4 md:w-64 md:items-start">
