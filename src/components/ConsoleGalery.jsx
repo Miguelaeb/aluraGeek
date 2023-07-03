@@ -39,9 +39,9 @@ export default function ConsoleGalery() {
                 </h2>
 
                 <div className="flex justify-between items-center gap-1">
-                    <button className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                    <a className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                         Ver Todo
-                    </button>
+                    </a>
                     <img src="images/arrow.svg" alt="" />
                 </div>
             </div>

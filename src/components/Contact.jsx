@@ -11,24 +11,24 @@ export default function Contact() {
                         alt="contact logo"
                     />
                     <div className="flex flex-col gap-4 md:w-64 md:items-start">
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiénes Somos
-                        </button>
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        </a>
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Política de privacidad
-                        </button>
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        </a>
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Programa de fidelidad
-                        </button>
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        </a>
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Nuestras tiendas
-                        </button>
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        </a>
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiero ser franquiciado
-                        </button>
-                        <button className="font-Raleway font-medium text-base text-seconday-gray">
+                        </a>
+                        <a className="font-Raleway font-medium text-base text-seconday-gray">
                             Anuncie aquí
-                        </button>
+                        </a>
                     </div>
                 </div>
 
