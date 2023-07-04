@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Contact() {
     return (
-        <section className="w-full bg-section-background p-4 mt-4 md:px-8 md:mt-8 lg:mt-16 md:py-8">
-            <div className="lg:max-w-[80rem] mx-auto flex flex-col justify-center md:flex-row">
+        <section className="w-full bg-section-background px-4 py-8 md:py-16">
+            <div className="lg:max-w-[80rem] mx-auto flex flex-col justify-center gap-8 md:flex-row">
                 <div className="flex flex-col w-full md:w-1/2 xl:w-full items-center gap-4 xl:gap-40 md:items-start xl:flex-row">
                     <img
                         className="justify-center"
@@ -59,9 +59,9 @@ export default function Contact() {
                     </div>
 
                     <button
-                        className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-32 py-3 px-4 hover:scale-110 transition duration-300 ease-in-out"
+                        className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-36 py-3 px-4 hover:scale-110 transition duration-300 ease-in-out"
                         type="submit">
-                        Submit
+                        Enviar Mensaje
                     </button>
                 </form>
             </div>

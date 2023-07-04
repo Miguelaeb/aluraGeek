@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -8,7 +9,7 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add your form submission logic here
+
     };
 
     return (
@@ -48,7 +49,7 @@ export default function Login() {
             </div>
 
             <div className=" flex flex-col justify-center items-center bg-searchBar-background">
-                <h2 className=" font-Raleway font-bold text-base text-seconday-gray mt-36">
+                <h2 className=" font-Raleway font-bold text-base xl:text-lg text-seconday-gray mt-36">
                     Inciciar Sesion
                 </h2>
                 <form
@@ -59,7 +60,7 @@ export default function Login() {
                             Email:
                         </label>
                         <input
-                            className="block p-2.5 w-[17rem] font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
+                            className="block p-2.5 w-[17rem] xl:w-[26.4375rem] font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                             type="email"
                             id="email"
                             value={email}
@@ -73,7 +74,7 @@ export default function Login() {
                             Password:
                         </label>
                         <input
-                            className="block p-2.5 w-[17rem] font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
+                            className="block p-2.5 w-[17rem] xl:w-[26.4375rem] font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                             type="password"
                             id="password"
                             value={password}
@@ -83,11 +84,13 @@ export default function Login() {
                     </div>
 
                     <div className=" flex justify-center mb-36">
-                        <input
-                            className="font-Raleway font-semibold text-sm text-white bg-primary-blue w-32 py-3 px-4 lg:w-[17rem]"
-                            type="submit"
-                            value="Submit"
-                        />
+                        <Link to="/Admin">
+                            <input
+                                className="font-Raleway font-semibold text-sm xl:text-lg text-white bg-primary-blue w-32 py-3 px-4 lg:w-[17rem] xl:w-[26.4375rem] cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                type="submit"
+                                value="Entrar"
+                            />
+                        </Link>
                     </div>
                 </form>
             </div>

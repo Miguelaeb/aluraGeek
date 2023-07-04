@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { startWarsData } from "../startWarsData";
+import { startWarsData } from "../data/startWarsData";
+import { Link } from "react-router-dom";
 
 export default function StarWarsGalery() {
     const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
@@ -39,9 +40,9 @@ export default function StarWarsGalery() {
                 </h2>
 
                 <div className="flex justify-between items-center gap-1">
-                    <a className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                    <Link href="#" className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                         Ver Todo
-                    </a>
+                    </Link>
                     <img src="images/arrow.svg" alt="" />
                 </div>
             </div>

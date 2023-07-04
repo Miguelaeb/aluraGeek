@@ -1,19 +1,19 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
 
 export default function App() {
-    return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path='login' element={<Login />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path='login' element={<Login />} />
+          <Route path='admin' element={<Admin />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
-
-// Todo Fix section background

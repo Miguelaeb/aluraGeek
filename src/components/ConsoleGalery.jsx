@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { consoleData } from "../consoleData";
+import { consoleData } from "../data/consoleData";
+import { Link } from "react-router-dom";
 
 export default function ConsoleGalery() {
     const [visibleconsoleData, setVisibleconsoleData] = useState(() => {
@@ -39,9 +40,9 @@ export default function ConsoleGalery() {
                 </h2>
 
                 <div className="flex justify-between items-center gap-1">
-                    <a className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                    <Link className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                         Ver Todo
-                    </a>
+                    </Link>
                     <img src="images/arrow.svg" alt="" />
                 </div>
             </div>
