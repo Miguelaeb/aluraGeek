@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     return (
@@ -27,9 +28,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center space-x-5">
-                    <button className=" font-Raleway font-semibold text-sm text-primary-blue border border-solid border-primary-blue w-32 md:w-40 xl:w-48 py-3 px-4 hover:bg-primary-blue hover:text-white transition-all duration-300">
+                    <Link to='login'>
+                    <button className="font-Raleway font-semibold text-sm text-primary-blue border border-solid border-primary-blue w-32 md:w-40 xl:w-48 py-3 px-4 hover:scale-110 transition duration-300 ease-in-out">
                         Login
                     </button>
+                    </Link>
                     <img
                         className=" md:hidden"
                         src="images/search__icon.svg"

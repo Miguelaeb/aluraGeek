@@ -11,22 +11,22 @@ export default function Contact() {
                         alt="contact logo"
                     />
                     <div className="flex flex-col gap-4 md:w-64 md:items-start">
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#"  className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiénes Somos
                         </a>
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Política de privacidad
                         </a>
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Programa de fidelidad
                         </a>
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Nuestras tiendas
                         </a>
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiero ser franquiciado
                         </a>
-                        <a className="font-Raleway font-medium text-base text-seconday-gray">
+                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Anuncie aquí
                         </a>
                     </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                     </div>
 
                     <button
-                        className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-32 py-3 px-4 hover:border hover:border-solid hover:border-primary-blue hover:bg-transparent hover:text-primary-blue transition-all duration-300"
+                        className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-32 py-3 px-4 hover:scale-110 transition duration-300 ease-in-out"
                         type="submit">
                         Submit
                     </button>
