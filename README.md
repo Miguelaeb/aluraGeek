@@ -2,9 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Preview project
-
-In the project directory, you can run:
+### Preview
+![previw](./public/images/AluraGeek__preview.png)
 
 ### `npm start`
 
