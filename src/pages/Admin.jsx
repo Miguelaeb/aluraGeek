@@ -1,8 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { startWarsData } from "../data/startWarsData";
-import { consoleData } from "../data/consoleData"
-import { variousData } from "../data/variousData"
+import { consoleData } from "../data/consoleData";
+import { variousData } from "../data/variousData";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -48,9 +48,11 @@ export default function Admin() {
                     <h2 className=" font-Raleway font-bold text-[1.375rem] text-seconday-gray flex items-center">
                         Todos los productos
                     </h2>
+                    <Link to='/addProduct'>
                     <button className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-36 py-3 hover:scale-110 transition duration-300 ease-in-out">
                         Agregar producto
                     </button>
+                    </Link>
                 </div>
 
                 <div className="flex flex-col lg:px-8 xl:p-0 xl:max-w-[80rem] mx-auto">
@@ -58,7 +60,7 @@ export default function Admin() {
                         {startWarsData.map((startWarsData) => (
                             <div
                                 key={startWarsData.id}
-                                className="startWarsData-card flex flex-col gap-2">
+                                className=" relative startWarsData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
                                     src={startWarsData.image}
@@ -74,13 +76,26 @@ export default function Admin() {
                                     {" "}
                                     {startWarsData.button}{" "}
                                 </button> */}
+
+                                <div className="absolute right-4 top-4 flex gap-6">
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/delete__icon.svg"
+                                        alt=""
+                                    />
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/edit__icon.svg"
+                                        alt=""
+                                    />
+                                </div>
                             </div>
                         ))}
 
                         {consoleData.map((consoleData) => (
                             <div
                                 key={consoleData.id}
-                                className="startWarsData-card flex flex-col gap-2">
+                                className=" relative consoleData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
                                     src={consoleData.image}
@@ -96,13 +111,25 @@ export default function Admin() {
                                     {" "}
                                     {startWarsData.button}{" "}
                                 </button> */}
+                                <div className="absolute right-4 top-4 flex gap-6">
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/delete__icon.svg"
+                                        alt=""
+                                    />
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/edit__icon.svg"
+                                        alt=""
+                                    />
+                                </div>
                             </div>
                         ))}
 
                         {variousData.map((variousData) => (
                             <div
                                 key={variousData.id}
-                                className="startWarsData-card flex flex-col gap-2">
+                                className=" relative variousData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
                                     src={variousData.image}
@@ -118,6 +145,18 @@ export default function Admin() {
                                     {" "}
                                     {startWarsData.button}{" "}
                                 </button> */}
+                                <div className="absolute right-4 top-4 flex gap-6">
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/delete__icon.svg"
+                                        alt=""
+                                    />
+                                    <img
+                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        src="images/edit__icon.svg"
+                                        alt=""
+                                    />
+                                </div>
                             </div>
                         ))}
                     </div>
