@@ -61,10 +61,12 @@ export default function StarWarsGalery() {
                         <p className=" font-Raleway font-bold text-base text-seconday-gray">
                             {startWarsData.price}
                         </p>
+                        <Link to="/viewProduct">
                         <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
                             {" "}
                             {startWarsData.button}{" "}
                         </button>
+                        </Link>
                     </div>
                 ))}
             </div>
