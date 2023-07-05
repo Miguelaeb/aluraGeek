@@ -21,3 +21,8 @@ export default function App() {
     </div>
   );
 }
+
+// TODO when a "ver producto" button is clicked, the page must have the iformation of the product that was selected
+// TODO create missing pages to show all products by category
+// TODO make form validation
+// TODO create the back-end

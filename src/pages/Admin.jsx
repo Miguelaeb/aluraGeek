@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { startWarsData } from "../data/startWarsData";
 import { consoleData } from "../data/consoleData";
@@ -7,6 +7,10 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function Admin() {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll up when the page load
+    }, []);
+
     return (
         <div>
             <div className=" m-4 lg:m-8">

@@ -29,8 +29,11 @@ export default function ViewProduct() {
         }
     }
 
+    
+
     useEffect(() => {
         window.addEventListener("resize", handleResize);
+        window.scrollTo(0, 0);
         return () => {
             window.removeEventListener("resize", handleResize);
         };

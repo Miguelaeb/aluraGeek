@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -11,6 +11,10 @@ export default function Login() {
         event.preventDefault();
 
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll up when the page load
+    }, []);
 
     return (
         <div>
