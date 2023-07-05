@@ -12,12 +12,19 @@ The challenge was to create an e-commerce website for the company AluraGeek .
 ### Requirements
 
 A homepage that contains a login button and a product search engine offered by the company.
+
 A banner that includes discounts, promotions, or relevant information of the moment.
+
 A gallery with product information such as image, product name, price, and a link to the product description page.
+
 A product page that contains the image, name, description, and price.
+
 A footer with a contact form and other relevant information.
+
 A login form to authenticate users who want to access the administrator menu.
+
 An administrator menu where they can add, edit, search, or delete products from the store.
+
 It must be responsive to all devices 
 
 ### Links
