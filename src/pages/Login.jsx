@@ -9,7 +9,6 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
     };
 
     useEffect(() => {
@@ -21,11 +20,13 @@ export default function Login() {
             <div className=" m-4 lg:m-8">
                 <nav className=" xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
                     <div className=" flex justify-center items-center gap-8">
-                        <img
-                            className=" md:w-28 lg:w-36"
-                            src="images/alurageek__logo.svg"
-                            alt="aluraGeek logo"
-                        />
+                        <Link to="/">
+                            <img
+                                className="md:w-28 lg:w-36 cursor-pointer"
+                                src="images/alurageek__logo.svg"
+                                alt="aluraGeek logo"
+                            />
+                        </Link>
 
                         <div className="relative hidden md:block">
                             <input
@@ -88,7 +89,7 @@ export default function Login() {
                     </div>
 
                     <div className=" flex justify-center mb-36">
-                        <Link to="/Admin">
+                        <Link to="/admin">
                             <input
                                 className="font-Raleway font-semibold text-sm xl:text-lg text-white bg-primary-blue w-32 py-3 px-4 lg:w-[17rem] xl:w-[26.4375rem] cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                 type="submit"

@@ -23,7 +23,7 @@ export default function VariousGalery() {
         } else {
             setVisiblevariousData(2);
         }
-    };
+    }
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
@@ -40,7 +40,7 @@ export default function VariousGalery() {
                 </h2>
 
                 <div className="flex justify-between items-center gap-1">
-                    <Link className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                    <Link to='/viewAllVaiousProducts' className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                         Ver Todo
                     </Link>
                     <img src="images/arrow.svg" alt="" />
@@ -49,7 +49,9 @@ export default function VariousGalery() {
 
             <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {variousData.slice(0, visiblevariousData).map((variousData) => (
-                    <div key={variousData.id} className="variousData-card flex flex-col gap-2">
+                    <div
+                        key={variousData.id}
+                        className="variousData-card flex flex-col gap-2">
                         <img
                             className=" w-full"
                             src={variousData.image}
@@ -61,14 +63,15 @@ export default function VariousGalery() {
                         <p className=" font-Raleway font-bold text-base text-seconday-gray">
                             {variousData.price}
                         </p>
-                        <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                            {" "}
-                            {variousData.button}{" "}
-                        </button>
+                        <Link to="/viewProduct">
+                            <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
+                                {" "}
+                                {variousData.button}{" "}
+                            </button>
+                        </Link>
                     </div>
                 ))}
             </div>
         </section>
-
     );
 }

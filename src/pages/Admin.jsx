@@ -16,11 +16,13 @@ export default function Admin() {
             <div className=" m-4 lg:m-8">
                 <nav className=" xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
                     <div className=" flex justify-center items-center gap-8">
-                        <img
-                            className=" md:w-28 lg:w-36"
-                            src="images/alurageek__logo.svg"
-                            alt="aluraGeek logo"
-                        />
+                        <Link to="/">
+                            <img
+                                className="md:w-28 lg:w-36 cursor-pointer"
+                                src="images/alurageek__logo.svg"
+                                alt="aluraGeek logo"
+                            />
+                        </Link>
 
                         <div className="relative hidden md:block">
                             <input
@@ -52,10 +54,10 @@ export default function Admin() {
                     <h2 className=" font-Raleway font-bold text-[1.375rem] text-seconday-gray flex items-center">
                         Todos los productos
                     </h2>
-                    <Link to='/addProduct'>
-                    <button className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-36 py-3 hover:scale-110 transition duration-300 ease-in-out">
-                        Agregar producto
-                    </button>
+                    <Link to="/addProduct">
+                        <button className="font-Raleway font-semibold text-sm bg-primary-blue text-white w-36 py-3 hover:scale-110 transition duration-300 ease-in-out">
+                            Agregar producto
+                        </button>
                     </Link>
                 </div>
 

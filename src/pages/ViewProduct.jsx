@@ -29,8 +29,6 @@ export default function ViewProduct() {
         }
     }
 
-    
-
     useEffect(() => {
         window.addEventListener("resize", handleResize);
         window.scrollTo(0, 0);
@@ -44,11 +42,13 @@ export default function ViewProduct() {
             <div className="m-4">
                 <nav className="xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
                     <div className="flex justify-center items-center gap-8">
-                        <img
-                            className="md:w-28 lg:w-36"
-                            src="images/alurageek__logo.svg"
-                            alt="aluraGeek logo"
-                        />
+                        <Link to="/">
+                            <img
+                                className="md:w-28 lg:w-36 cursor-pointer"
+                                src="images/alurageek__logo.svg"
+                                alt="aluraGeek logo"
+                            />
+                        </Link>
 
                         <div className="relative hidden md:block">
                             <input
