@@ -8,7 +8,7 @@ export default function ViewAllConsoleProducts() {
     const [visibleconsoleData, setVisibleconsoleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            return 6;
+            return consoleData.length;
         } else if (screenWidth >= 375) {
             return 4;
         } else {
@@ -19,7 +19,7 @@ export default function ViewAllConsoleProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisibleconsoleData(6);
+            setVisibleconsoleData(consoleData.length);
         } else if (screenWidth >= 375) {
             setVisibleconsoleData(4);
         } else {

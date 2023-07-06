@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function ViewAllVaiousProducts() {
     const [visiblevariousData, setVisiblevariousData] = useState(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= 1000) {
+        if (screenWidth >= variousData.length) {
             return 6;
         } else if (screenWidth >= 375) {
             return 4;
@@ -19,7 +19,7 @@ export default function ViewAllVaiousProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblevariousData(6);
+            setVisiblevariousData(variousData.length);
         } else if (screenWidth >= 375) {
             setVisiblevariousData(4);
         } else {

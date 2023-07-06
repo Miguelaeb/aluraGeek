@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function ViewAllStarWarsProducts() {
     const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= 1000) {
+        if (screenWidth >= startWarsData.length) {
             return 6;
         } else if (screenWidth >= 375) {
             return 4;
@@ -19,7 +19,7 @@ export default function ViewAllStarWarsProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblestartWarsData(6);
+            setVisiblestartWarsData(startWarsData.length);
         } else if (screenWidth >= 375) {
             setVisiblestartWarsData(4);
         } else {
