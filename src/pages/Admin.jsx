@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { startWarsData } from "../data/startWarsData";
-import { consoleData } from "../data/consoleData";
-import { variousData } from "../data/variousData";
+import { Data } from "../data/Data";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -10,6 +8,10 @@ export default function Admin() {
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll up when the page load
     }, []);
+
+    const starWarsItems = Data.filter((item) => item.category === "StarWars");
+    const consoleItems = Data.filter((item) => item.category === "console");
+    const variousItems = Data.filter((item) => item.category === "various");
 
     return (
         <div>
@@ -63,20 +65,20 @@ export default function Admin() {
 
                 <div className="flex flex-col lg:px-8 xl:p-0 xl:max-w-[80rem] mx-auto">
                     <div className=" w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-y-8">
-                        {startWarsData.map((startWarsData) => (
+                        {starWarsItems.map((starWarsItems) => (
                             <div
-                                key={startWarsData.id}
+                                key={starWarsItems.id}
                                 className=" relative startWarsData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
-                                    src={startWarsData.image}
-                                    alt={startWarsData.name}
+                                    src={starWarsItems.image}
+                                    alt={starWarsItems.name}
                                 />
                                 <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {startWarsData.name}
+                                    {starWarsItems.name}
                                 </h3>
                                 <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {startWarsData.price}
+                                    {starWarsItems.price}
                                 </p>
                                 {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
                                     {" "}
@@ -98,20 +100,20 @@ export default function Admin() {
                             </div>
                         ))}
 
-                        {consoleData.map((consoleData) => (
+                        {consoleItems.map((consoleItems) => (
                             <div
-                                key={consoleData.id}
+                                key={consoleItems.id}
                                 className=" relative consoleData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
-                                    src={consoleData.image}
-                                    alt={consoleData.name}
+                                    src={consoleItems.image}
+                                    alt={consoleItems.name}
                                 />
                                 <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {consoleData.name}
+                                    {consoleItems.name}
                                 </h3>
                                 <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {consoleData.price}
+                                    {consoleItems.price}
                                 </p>
                                 {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
                                     {" "}
@@ -132,20 +134,20 @@ export default function Admin() {
                             </div>
                         ))}
 
-                        {variousData.map((variousData) => (
+                        {variousItems.map((variousItems) => (
                             <div
-                                key={variousData.id}
+                                key={variousItems.id}
                                 className=" relative variousData-card flex flex-col gap-2">
                                 <img
                                     className=" w-full"
-                                    src={variousData.image}
-                                    alt={variousData.name}
+                                    src={variousItems.image}
+                                    alt={variousItems.name}
                                 />
                                 <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {variousData.name}
+                                    {variousItems.name}
                                 </h3>
                                 <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {variousData.price}
+                                    {variousItems.price}
                                 </p>
                                 {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
                                     {" "}

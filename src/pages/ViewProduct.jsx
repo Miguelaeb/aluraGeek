@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { startWarsData } from "../data/startWarsData";
-import { Link } from "react-router-dom";
+import { Data } from "../data/Data";
+import { Link, useParams } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewProduct() {
-    const firstProduct = startWarsData[0];
+    const { id } = useParams();
+    const selectedProduct = Data.find((product) => product.id === parseInt(id));
 
-    const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
+    const [visibleData, setvisibleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
             return 6;
@@ -21,11 +22,11 @@ export default function ViewProduct() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblestartWarsData(6);
+            setvisibleData(6);
         } else if (screenWidth >= 375) {
-            setVisiblestartWarsData(4);
+            setvisibleData(4);
         } else {
-            setVisiblestartWarsData(2);
+            setvisibleData(2);
         }
     }
 
@@ -37,6 +38,13 @@ export default function ViewProduct() {
         };
     }, []);
 
+    // Filtra los productos similares basados en la categoría del producto seleccionado.
+    const similarProducts = Data.filter(
+        (product) =>
+            product.category === selectedProduct.category &&
+            product.id !== selectedProduct.id
+    );
+
     return (
         <div>
             <div className="m-4">
@@ -45,7 +53,7 @@ export default function ViewProduct() {
                         <Link to="/">
                             <img
                                 className="md:w-28 lg:w-36 cursor-pointer"
-                                src="images/alurageek__logo.svg"
+                                src="/images/alurageek__logo.svg"
                                 alt="aluraGeek logo"
                             />
                         </Link>
@@ -80,19 +88,19 @@ export default function ViewProduct() {
                     <div className="md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
                         <img
                             className="w-full md:w-[15.875rem] lg:w-[80rem]"
-                            src={firstProduct.image}
-                            alt={firstProduct.name}
+                            src={selectedProduct.image}
+                            alt={selectedProduct.name}
                         />
 
                         <div className="p-4 flex flex-col gap-2">
                             <h2 className="font-Raleway font-medium text-[1.375rem] text-seconday-gray xl:text-[3.25rem]">
-                                {firstProduct.name}
+                                {selectedProduct.name}
                             </h2>
                             <p className="font-Raleway font-bold text-base text-seconday-gray">
-                                {firstProduct.price}
+                                {selectedProduct.price}
                             </p>
                             <p className="font-Raleway font-normal text-sm text-seconday-gray xl:text-base">
-                                {firstProduct.description}
+                                {selectedProduct.description}
                             </p>
                         </div>
                     </div>
@@ -103,26 +111,26 @@ export default function ViewProduct() {
                         </h2>
 
                         <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                            {startWarsData
-                                .slice(0, visiblestartWarsData)
-                                .map((startWarsData) => (
+                            {similarProducts
+                                .slice(0, visibleData)
+                                .map((product) => (
                                     <div
-                                        key={startWarsData.id}
+                                        key={product.id}
                                         className="startWarsData-card flex flex-col gap-2">
                                         <img
                                             className="w-full"
-                                            src={startWarsData.image}
-                                            alt={startWarsData.name}
+                                            src={product.image}
+                                            alt={product.name}
                                         />
                                         <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
-                                            {startWarsData.name}
+                                            {product.name}
                                         </h3>
                                         <p className="font-Raleway font-bold text-base text-seconday-gray">
-                                            {startWarsData.price}
+                                            {product.price}
                                         </p>
-                                        <Link to="/viewProduct">
+                                        <Link to={`/viewProduct/${product.id}`}>
                                             <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                                {startWarsData.button}
+                                                {product.button}
                                             </button>
                                         </Link>
                                     </div>

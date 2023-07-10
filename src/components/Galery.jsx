@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { startWarsData } from "../data/startWarsData";
-import { consoleData } from "../data/consoleData";
-import { variousData } from "../data/variousData";
+import { Data } from "../data/Data";
 import { Link } from "react-router-dom";
 
 export default function Galery() {
-    const [visibleData, setvisibleData] = useState(() => {
+    const [visibleData, setVisibleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
             return 6;
@@ -19,11 +17,11 @@ export default function Galery() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setvisibleData(6);
+            setVisibleData(6);
         } else if (screenWidth >= 375) {
-            setvisibleData(4);
+            setVisibleData(4);
         } else {
-            setvisibleData(2);
+            setVisibleData(2);
         }
     }
 
@@ -34,50 +32,49 @@ export default function Galery() {
         };
     }, []);
 
+    const starWarsItems = Data.filter((item) => item.category === "StarWars");
+    const consoleItems = Data.filter((item) => item.category === "console");
+    const variousItems = Data.filter((item) => item.category === "various");
+
     return (
-        <section className=" flex flex-col gap-4 md:gap-8 lg:gap-16">
+        <section className="flex flex-col gap-4 md:gap-8 lg:gap-16">
             <div>
                 <div className="flex justify-between items-center">
                     <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
                         Star Wars
                     </h2>
-
                     <div className="flex justify-between items-center gap-1">
                         <Link
-                            to="/ViewAllStarWarsProducts"
-                            className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                            to="/viewAllStarWarsProducts"
+                            className="font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                             Ver Todo
                         </Link>
                         <img src="images/arrow.svg" alt="" />
                     </div>
                 </div>
-
-                <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    {startWarsData
-                        .slice(0, visibleData)
-                        .map((startWarsData) => (
-                            <div
-                                key={startWarsData.id}
-                                className="startWarsData-card flex flex-col gap-2">
-                                <img
-                                    className=" w-full"
-                                    src={startWarsData.image}
-                                    alt={startWarsData.name}
-                                />
-                                <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {startWarsData.name}
-                                </h3>
-                                <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {startWarsData.price}
-                                </p>
-                                <Link to="/viewProduct">
-                                    <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                        {" "}
-                                        {startWarsData.button}{" "}
-                                    </button>
-                                </Link>
-                            </div>
-                        ))}
+                <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {starWarsItems.slice(0, visibleData).map((item) => (
+                        <div
+                            key={item.id}
+                            className="startWarsData-card flex flex-col gap-2">
+                            <img
+                                className="w-full"
+                                src={item.image}
+                                alt={item.name}
+                            />
+                            <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                {item.name}
+                            </h3>
+                            <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                {item.price}
+                            </p>
+                            <Link to={`/viewProduct/${item.id}`}>
+                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                    {item.button}
+                                </button>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -86,37 +83,34 @@ export default function Galery() {
                     <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
                         Consolas
                     </h2>
-
                     <div className="flex justify-between items-center gap-1">
                         <Link
-                            to="/ViewAllConsoleProducts"
-                            className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                            to="/viewAllConsoleProducts"
+                            className="font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                             Ver Todo
                         </Link>
                         <img src="images/arrow.svg" alt="" />
                     </div>
                 </div>
-
-                <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    {consoleData.slice(0, visibleData).map((consoleData) => (
+                <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {consoleItems.slice(0, visibleData).map((item) => (
                         <div
-                            key={consoleData.id}
+                            key={item.id}
                             className="consoleData-card flex flex-col gap-2">
                             <img
-                                className=" w-full"
-                                src={consoleData.image}
-                                alt={consoleData.name}
+                                className="w-full"
+                                src={item.image}
+                                alt={item.name}
                             />
-                            <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                {consoleData.name}
+                            <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                {item.name}
                             </h3>
-                            <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                {consoleData.price}
+                            <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                {item.price}
                             </p>
-                            <Link to="/viewProduct">
-                                <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    {" "}
-                                    {consoleData.button}{" "}
+                            <Link to={`/viewProduct/${item.id}`}>
+                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                    {item.button}
                                 </button>
                             </Link>
                         </div>
@@ -129,37 +123,34 @@ export default function Galery() {
                     <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
                         Diversos
                     </h2>
-
                     <div className="flex justify-between items-center gap-1">
                         <Link
                             to="/viewAllVaiousProducts"
-                            className=" font-Raleway font-bold text-sm xl:text-base text-primary-blue">
+                            className="font-Raleway font-bold text-sm xl:text-base text-primary-blue">
                             Ver Todo
                         </Link>
                         <img src="images/arrow.svg" alt="" />
                     </div>
                 </div>
-
-                <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    {variousData.slice(0, visibleData).map((variousData) => (
+                <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {variousItems.slice(0, visibleData).map((item) => (
                         <div
-                            key={variousData.id}
+                            key={item.id}
                             className="variousData-card flex flex-col gap-2">
                             <img
-                                className=" w-full"
-                                src={variousData.image}
-                                alt={variousData.name}
+                                className="w-full"
+                                src={item.image}
+                                alt={item.name}
                             />
-                            <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                {variousData.name}
+                            <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                {item.name}
                             </h3>
-                            <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                {variousData.price}
+                            <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                {item.price}
                             </p>
-                            <Link to="/viewProduct">
-                                <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    {" "}
-                                    {variousData.button}{" "}
+                            <Link to={`/viewProduct/${item.id}`}>
+                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                    {item.button}
                                 </button>
                             </Link>
                         </div>

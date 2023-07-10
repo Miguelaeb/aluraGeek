@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
     return (
@@ -7,28 +8,28 @@ export default function Contact() {
                 <div className="flex flex-col w-full md:w-1/2 xl:w-full items-center gap-4 xl:gap-40 md:items-start xl:flex-row">
                     <img
                         className="justify-center"
-                        src="images/contactLogo.svg"
+                        src="/images/contactLogo.svg"
                         alt="contact logo"
                     />
                     <div className="flex flex-col gap-4 md:w-64 md:items-start">
-                        <a href="#"  className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link href="#"  className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiénes Somos
-                        </a>
-                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        </Link>
+                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Política de privacidad
-                        </a>
-                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        </Link>
+                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Programa de fidelidad
-                        </a>
-                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        </Link>
+                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Nuestras tiendas
-                        </a>
-                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        </Link>
+                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Quiero ser franquiciado
-                        </a>
-                        <a href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        </Link>
+                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
                             Anuncie aquí
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
