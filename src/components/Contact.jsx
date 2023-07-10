@@ -12,22 +12,22 @@ export default function Contact() {
                         alt="contact logo"
                     />
                     <div className="flex flex-col gap-4 md:w-64 md:items-start">
-                        <Link href="#"  className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Quiénes Somos
                         </Link>
-                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Política de privacidad
                         </Link>
-                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Programa de fidelidad
                         </Link>
-                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Nuestras tiendas
                         </Link>
-                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Quiero ser franquiciado
                         </Link>
-                        <Link href="#" className="font-Raleway font-medium text-base text-seconday-gray">
+                        <Link  className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Anuncie aquí
                         </Link>
                     </div>

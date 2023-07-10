@@ -67,7 +67,7 @@ export default function ViewProduct() {
 
                             <img
                                 className="absolute top-0 right-5 flex items-center justify-center h-full w-5"
-                                src="images/second__search__icon.svg"
+                                src="../images/second__search__icon.svg"
                                 alt=""
                             />
                         </div>
@@ -76,7 +76,7 @@ export default function ViewProduct() {
                     <div className="flex items-center space-x-5">
                         <img
                             className="md:hidden"
-                            src="images/search__icon.svg"
+                            src="../images/search__icon.svg"
                             alt="search icon"
                         />
                     </div>
