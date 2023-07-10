@@ -101,11 +101,11 @@ export default function ViewAllConsoleProducts() {
                                     <p className="font-Raleway font-bold text-base text-seconday-gray">
                                         {item.price}
                                     </p>
-                                    <Link to="/viewProduct">
-                                        <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                            {item.button}
-                                        </button>
-                                    </Link>
+                                    <Link to={`/viewProduct/${item.id}`}>
+                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                    {item.button}
+                                </button>
+                            </Link>
                                 </div>
                             ))}
                     </div>

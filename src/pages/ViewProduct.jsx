@@ -38,7 +38,7 @@ export default function ViewProduct() {
         };
     }, []);
 
-    // Filtra los productos similares basados en la categoría del producto seleccionado.
+    // To filter similar products 
     const similarProducts = Data.filter(
         (product) =>
             product.category === selectedProduct.category &&

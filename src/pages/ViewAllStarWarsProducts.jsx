@@ -35,9 +35,7 @@ export default function ViewAllStarWarsProducts() {
         };
     }, []);
 
-    const starWarsItems = Data.filter(
-        (item) => item.category === "StarWars"
-    );
+    const starWarsItems = Data.filter((item) => item.category === "StarWars");
 
     return (
         <div>
@@ -103,7 +101,7 @@ export default function ViewAllStarWarsProducts() {
                                     <p className="font-Raleway font-bold text-base text-seconday-gray">
                                         {item.price}
                                     </p>
-                                    <Link to="/viewProduct">
+                                    <Link to={`/viewProduct/${item.id}`}>
                                         <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
                                             {item.button}
                                         </button>
