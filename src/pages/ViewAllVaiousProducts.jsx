@@ -8,7 +8,7 @@ export default function ViewAllVaiousProducts() {
     const [visiblevariousData, setVisiblevariousData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= Data.length) {
-            return 6;
+            return Data.length;
         } else if (screenWidth >= 375) {
             return 4;
         } else {
