@@ -38,7 +38,7 @@ export default function ViewAllVariousProducts() {
     const [consoleItems, setConsoleItems] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:303/products")
+        axios.get("http://localhost:3000/products")
             .then((response) => {
                 const data = response.data;
                 const consoleItemsData = data.filter((item) => item.category === "console");
