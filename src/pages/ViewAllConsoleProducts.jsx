@@ -102,7 +102,7 @@ export default function ViewAllConsoleProducts() {
                                         {item.price}
                                     </p>
                                     <Link to={`/viewProduct/${item.id}`}>
-                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue mb-4">
                                     {item.button}
                                 </button>
                             </Link>
