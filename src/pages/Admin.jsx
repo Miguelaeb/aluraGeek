@@ -1,23 +1,52 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import { Data } from "../data/Data";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function Admin() {
     useEffect(() => {
-        window.scrollTo(0, 0); // Scroll up when the page load
+        window.scrollTo(0, 0); // Scroll up when the page loads
     }, []);
 
-    const starWarsItems = Data.filter((item) => item.category === "StarWars");
-    const consoleItems = Data.filter((item) => item.category === "console");
-    const variousItems = Data.filter((item) => item.category === "various");
+    const [starWarsItems, setStarWarsItems] = useState([]);
+    const [consoleItems, setConsoleItems] = useState([]);
+    const [variousItems, setVariousItems] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:303/products?category=StarWars")
+            .then((response) => {
+                setStarWarsItems(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching Star Wars products data:", error);
+            });
+
+        axios
+            .get("http://localhost:303/products?category=console")
+            .then((response) => {
+                setConsoleItems(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching console products data:", error);
+            });
+
+        axios
+            .get("http://localhost:303/products?category=various")
+            .then((response) => {
+                setVariousItems(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching various products data:", error);
+            });
+    }, []);
 
     return (
         <div>
-            <div className=" m-4 lg:m-8">
-                <nav className=" xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
-                    <div className=" flex justify-center items-center gap-8">
+            <div className="m-4 lg:m-8">
+                <nav className="xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
+                    <div className="flex justify-center items-center gap-8">
                         <Link to="/">
                             <img
                                 className="md:w-28 lg:w-36 cursor-pointer"
@@ -30,7 +59,7 @@ export default function Admin() {
                             <input
                                 type="text"
                                 placeholder="¿Qué deseas buscar?"
-                                className=" font-Raleway font-normal text-sm w-72 xl:w-[24.7rem] text-seconday-gray border bg-searchBar-background rounded-full py-2 px-4 focus:outline-none focus:border-primary-blue"
+                                className="font-Raleway font-normal text-sm w-72 xl:w-[24.7rem] text-seconday-gray border bg-searchBar-background rounded-full py-2 px-4 focus:outline-none focus:border-primary-blue"
                             />
 
                             <img
@@ -43,7 +72,7 @@ export default function Admin() {
 
                     <div className="flex items-center space-x-5">
                         <img
-                            className=" md:hidden"
+                            className="md:hidden"
                             src="images/search__icon.svg"
                             alt="search icon"
                         />
@@ -51,9 +80,9 @@ export default function Admin() {
                 </nav>
             </div>
 
-            <div className=" bg-searchBar-background p-4 md:py-8">
+            <div className="bg-searchBar-background p-4 md:py-8">
                 <div className="flex flex-col md:justify-between gap-4 mb-8 lg:px-8 xl:p-0 xl:max-w-[80rem] mx-auto md:flex-row">
-                    <h2 className=" font-Raleway font-bold text-[1.375rem] text-seconday-gray flex items-center">
+                    <h2 className="font-Raleway font-bold text-[1.375rem] text-seconday-gray flex items-center">
                         Todos los productos
                     </h2>
                     <Link to="/addProduct">
@@ -64,35 +93,30 @@ export default function Admin() {
                 </div>
 
                 <div className="flex flex-col lg:px-8 xl:p-0 xl:max-w-[80rem] mx-auto">
-                    <div className=" w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-y-8">
-                        {starWarsItems.map((starWarsItems) => (
+                    <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-y-8">
+                        {starWarsItems.map((starWarsItem) => (
                             <div
-                                key={starWarsItems.id}
-                                className=" relative startWarsData-card flex flex-col gap-2">
+                                key={starWarsItem.id}
+                                className="relative startWarsData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full"
-                                    src={starWarsItems.image}
-                                    alt={starWarsItems.name}
+                                    className="w-full"
+                                    src={starWarsItem.image}
+                                    alt={starWarsItem.name}
                                 />
-                                <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {starWarsItems.name}
+                                <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                    {starWarsItem.name}
                                 </h3>
-                                <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {starWarsItems.price}
+                                <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                    {starWarsItem.price}
                                 </p>
-                                {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    {" "}
-                                    {startWarsData.button}{" "}
-                                </button> */}
-
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/delete__icon.svg"
                                         alt=""
                                     />
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/edit__icon.svg"
                                         alt=""
                                     />
@@ -100,33 +124,29 @@ export default function Admin() {
                             </div>
                         ))}
 
-                        {consoleItems.map((consoleItems) => (
+                        {consoleItems.map((consoleItem) => (
                             <div
-                                key={consoleItems.id}
-                                className=" relative consoleData-card flex flex-col gap-2">
+                                key={consoleItem.id}
+                                className="relative consoleData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full"
-                                    src={consoleItems.image}
-                                    alt={consoleItems.name}
+                                    className="w-full"
+                                    src={consoleItem.image}
+                                    alt={consoleItem.name}
                                 />
-                                <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {consoleItems.name}
+                                <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                    {consoleItem.name}
                                 </h3>
-                                <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {consoleItems.price}
+                                <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                    {consoleItem.price}
                                 </p>
-                                {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    {" "}
-                                    {startWarsData.button}{" "}
-                                </button> */}
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/delete__icon.svg"
                                         alt=""
                                     />
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/edit__icon.svg"
                                         alt=""
                                     />
@@ -134,33 +154,29 @@ export default function Admin() {
                             </div>
                         ))}
 
-                        {variousItems.map((variousItems) => (
+                        {variousItems.map((variousItem) => (
                             <div
-                                key={variousItems.id}
-                                className=" relative variousData-card flex flex-col gap-2">
+                                key={variousItem.id}
+                                className="relative variousData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full"
-                                    src={variousItems.image}
-                                    alt={variousItems.name}
+                                    className="w-full"
+                                    src={variousItem.image}
+                                    alt={variousItem.name}
                                 />
-                                <h3 className=" font-Raleway font-medium text-sm text-seconday-gray">
-                                    {variousItems.name}
+                                <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
+                                    {variousItem.name}
                                 </h3>
-                                <p className=" font-Raleway font-bold text-base text-seconday-gray">
-                                    {variousItems.price}
+                                <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                    {variousItem.price}
                                 </p>
-                                {/* <button className=" font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    {" "}
-                                    {startWarsData.button}{" "}
-                                </button> */}
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/delete__icon.svg"
                                         alt=""
                                     />
                                     <img
-                                        className=" cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
                                         src="images/edit__icon.svg"
                                         alt=""
                                     />

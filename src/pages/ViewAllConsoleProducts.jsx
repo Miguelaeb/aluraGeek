@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Data } from "../data/Data";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-export default function ViewAllConsoleProducts() {
-    const [visiblevariousData, setVisiblevariousData] = useState(() => {
+export default function ViewAllVariousProducts() {
+    const [visibleconsoleData, setVisibleconsoleData] = useState(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= Data.length) {
-            return Data.length;
+        if (screenWidth >= 1000) {
+            return 6;
         } else if (screenWidth >= 375) {
             return 4;
         } else {
@@ -19,11 +19,11 @@ export default function ViewAllConsoleProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblevariousData(Data.length);
+            setVisibleconsoleData(6);
         } else if (screenWidth >= 375) {
-            setVisiblevariousData(4);
+            setVisibleconsoleData(4);
         } else {
-            setVisiblevariousData(2);
+            setVisibleconsoleData(2);
         }
     }
 
@@ -35,7 +35,19 @@ export default function ViewAllConsoleProducts() {
         };
     }, []);
 
-    const variousItems = Data.filter((item) => item.category === "console");
+    const [consoleItems, setConsoleItems] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:303/products")
+            .then((response) => {
+                const data = response.data;
+                const consoleItemsData = data.filter((item) => item.category === "console");
+                setConsoleItems(consoleItemsData);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, []);
 
     return (
         <div>
@@ -79,13 +91,13 @@ export default function ViewAllConsoleProducts() {
                 <div className="bg-searchBar-background p-4 md:py-8 lg:py-16">
                     <div className="max-w-[80rem] mx-auto">
                         <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
-                            Diversos
+                            Consola
                         </h2>
                     </div>
 
                     <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-[80rem] mx-auto">
-                        {variousItems
-                            .slice(0, visiblevariousData)
+                        {consoleItems
+                            .slice(0, visibleconsoleData)
                             .map((item) => (
                                 <div
                                     key={item.id}
@@ -102,10 +114,10 @@ export default function ViewAllConsoleProducts() {
                                         {item.price}
                                     </p>
                                     <Link to={`/viewProduct/${item.id}`}>
-                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue mb-4">
-                                    {item.button}
-                                </button>
-                            </Link>
+                                        <button className="font-Raleway font-bold text-sm text-left text-primary-blue mb-4">
+                                            {item.button}
+                                        </button>
+                                    </Link>
                                 </div>
                             ))}
                     </div>

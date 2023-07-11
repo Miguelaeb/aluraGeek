@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Data } from "../data/Data";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Galery() {
@@ -32,9 +32,26 @@ export default function Galery() {
         };
     }, []);
 
-    const starWarsItems = Data.filter((item) => item.category === "StarWars");
-    const consoleItems = Data.filter((item) => item.category === "console");
-    const variousItems = Data.filter((item) => item.category === "various");
+    const [starWarsItems, setStarWarsItems] = useState([]);
+    const [consoleItems, setConsoleItems] = useState([]);
+    const [variousItems, setVariousItems] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:303/products")
+          .then((response) => {
+            const data = response.data;
+            const starWarsItemsData = data.filter((item) => item.category === "StarWars");
+            const consoleItemsData = data.filter((item) => item.category === "console");
+            const variousItemsData = data.filter((item) => item.category === "various");
+    
+            setStarWarsItems(starWarsItemsData);
+            setConsoleItems(consoleItemsData);
+            setVariousItems(variousItemsData);
+          })
+          .catch((error) => {
+            console.error("Error fetching product data:", error);
+          });
+      }, []);
 
     return (
         <section className="flex flex-col gap-4 md:gap-8 lg:gap-16">

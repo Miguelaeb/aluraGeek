@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Data } from "../data/Data";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-export default function ViewAllVaiousProducts() {
+export default function ViewAllVariousProducts() {
     const [visiblevariousData, setVisiblevariousData] = useState(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= Data.length) {
-            return Data.length;
+        if (screenWidth >= 1000) {
+            return 6;
         } else if (screenWidth >= 375) {
             return 4;
         } else {
@@ -19,7 +19,7 @@ export default function ViewAllVaiousProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblevariousData(Data.length);
+            setVisiblevariousData(6);
         } else if (screenWidth >= 375) {
             setVisiblevariousData(4);
         } else {
@@ -35,7 +35,19 @@ export default function ViewAllVaiousProducts() {
         };
     }, []);
 
-    const variousItems = Data.filter((item) => item.category === "various");
+    const [variousItems, setVariousItems] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:303/products")
+            .then((response) => {
+                const data = response.data;
+                const variousItemsData = data.filter((item) => item.category === "various");
+                setVariousItems(variousItemsData);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, []);
 
     return (
         <div>

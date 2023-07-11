@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Data } from "../data/Data";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewProduct() {
     const { id } = useParams();
-    const selectedProduct = Data.find((product) => product.id === parseInt(id));
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const [visibleData, setvisibleData] = useState(() => {
+    useEffect(() => {
+        axios.get(`http://localhost:303/products/${id}`)
+            .then((response) => {
+                setSelectedProduct(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, [id]);
+
+    const [visibleData, setVisibleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
             return 6;
@@ -22,11 +32,11 @@ export default function ViewProduct() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setvisibleData(6);
+            setVisibleData(6);
         } else if (screenWidth >= 375) {
-            setvisibleData(4);
+            setVisibleData(4);
         } else {
-            setvisibleData(2);
+            setVisibleData(2);
         }
     }
 
@@ -38,12 +48,19 @@ export default function ViewProduct() {
         };
     }, []);
 
-    // To filter similar products 
-    const similarProducts = Data.filter(
-        (product) =>
-            product.category === selectedProduct.category &&
-            product.id !== selectedProduct.id
-    );
+    const [similarProducts, setSimilarProducts] = useState([]);
+
+    useEffect(() => {
+        if (selectedProduct) {
+            axios.get(`http://localhost:303/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
+                .then((response) => {
+                    setSimilarProducts(response.data);
+                })
+                .catch((error) => {
+                    console.error("Error fetching similar products data:", error);
+                });
+        }
+    }, [selectedProduct]);
 
     return (
         <div>
@@ -85,25 +102,27 @@ export default function ViewProduct() {
 
             <div className="flex flex-col justify-center bg-searchBar-background md:p-4 xl:p-0">
                 <div className="xl:max-w-[80rem] xl:mx-auto">
-                    <div className="md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
-                        <img
-                            className="w-full md:w-[15.875rem] lg:w-[80rem]"
-                            src={selectedProduct.image}
-                            alt={selectedProduct.name}
-                        />
+                    {selectedProduct && (
+                        <div className="md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
+                            <img
+                                className="w-full md:w-[15.875rem] lg:w-[80rem]"
+                                src={selectedProduct.image}
+                                alt={selectedProduct.name}
+                            />
 
-                        <div className="p-4 flex flex-col gap-2">
-                            <h2 className="font-Raleway font-medium text-[1.375rem] text-seconday-gray xl:text-[3.25rem]">
-                                {selectedProduct.name}
-                            </h2>
-                            <p className="font-Raleway font-bold text-base text-seconday-gray">
-                                {selectedProduct.price}
-                            </p>
-                            <p className="font-Raleway font-normal text-sm text-seconday-gray xl:text-base">
-                                {selectedProduct.description}
-                            </p>
+                            <div className="p-4 flex flex-col gap-2">
+                                <h2 className="font-Raleway font-medium text-[1.375rem] text-seconday-gray xl:text-[3.25rem]">
+                                    {selectedProduct.name}
+                                </h2>
+                                <p className="font-Raleway font-bold text-base text-seconday-gray">
+                                    {selectedProduct.price}
+                                </p>
+                                <p className="font-Raleway font-normal text-sm text-seconday-gray xl:text-base">
+                                    {selectedProduct.description}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     <div className="p-4 xl:p-0 xl:mb-16">
                         <h2 className="font-Raleway font-bold text-[1.375rem] text-seconday-gray mb-4 lg:mb-8 md:mt-32 lg:mt-16">

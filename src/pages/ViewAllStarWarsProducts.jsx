@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Data } from "../data/Data";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -7,8 +7,8 @@ import Footer from "../components/Footer";
 export default function ViewAllStarWarsProducts() {
     const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= Data.length) {
-            return Data.length;
+        if (screenWidth >= 1000) {
+            return 6;
         } else if (screenWidth >= 375) {
             return 4;
         } else {
@@ -19,7 +19,7 @@ export default function ViewAllStarWarsProducts() {
     function handleResize() {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblestartWarsData(Data.length);
+            setVisiblestartWarsData(6);
         } else if (screenWidth >= 375) {
             setVisiblestartWarsData(4);
         } else {
@@ -35,7 +35,22 @@ export default function ViewAllStarWarsProducts() {
         };
     }, []);
 
-    const starWarsItems = Data.filter((item) => item.category === "StarWars");
+    const [starWarsItems, setStarWarsItems] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:303/products")
+            .then((response) => {
+                const data = response.data;
+                const starWarsItemsData = data.filter(
+                    (item) => item.category === "StarWars"
+                );
+                setStarWarsItems(starWarsItemsData);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, []);
 
     return (
         <div>
@@ -102,7 +117,7 @@ export default function ViewAllStarWarsProducts() {
                                         {item.price}
                                     </p>
                                     <Link to={`/viewProduct/${item.id}`}>
-                                        <button className="font-Raleway font-bold text-sm text-left text-primary-blue mb-4">
+                                        <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
                                             {item.button}
                                         </button>
                                     </Link>
