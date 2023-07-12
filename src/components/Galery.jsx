@@ -37,7 +37,7 @@ export default function Galery() {
     const [variousItems, setVariousItems] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/products")
+        axios.get("http://localhost:3001/products")
           .then((response) => {
             const data = response.data;
             const starWarsItemsData = data.filter((item) => item.category === "StarWars");

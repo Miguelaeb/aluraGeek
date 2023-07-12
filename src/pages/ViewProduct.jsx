@@ -52,7 +52,7 @@ export default function ViewProduct() {
 
     useEffect(() => {
         if (selectedProduct) {
-            axios.get(`http://localhost:3000/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
+            axios.get(`http://localhost:3001/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
                 .then((response) => {
                     setSimilarProducts(response.data);
                 })

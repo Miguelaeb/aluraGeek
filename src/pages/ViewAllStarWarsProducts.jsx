@@ -39,7 +39,7 @@ export default function ViewAllStarWarsProducts() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/products")
+            .get("http://localhost:3001/products")
             .then((response) => {
                 const data = response.data;
                 const starWarsItemsData = data.filter(

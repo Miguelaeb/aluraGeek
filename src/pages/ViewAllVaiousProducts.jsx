@@ -38,7 +38,7 @@ export default function ViewAllVariousProducts() {
     const [variousItems, setVariousItems] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/products")
+        axios.get("http://localhost:3001/products")
             .then((response) => {
                 const data = response.data;
                 const variousItemsData = data.filter((item) => item.category === "various");
