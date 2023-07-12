@@ -171,7 +171,7 @@ const data = {
       {
         "id": 1,
         "email": "usuario1@example.com",
-        "password": 123456
+        "password": "827ccb0eea8a706c4c34a16891f84e7b"
       }
     ]
   };
