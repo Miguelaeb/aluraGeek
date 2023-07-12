@@ -9,7 +9,7 @@ export default function ViewProduct() {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/products/${id}`)
+        axios.get(`http://localhost:3001/products/${id}`)
             .then((response) => {
                 setSelectedProduct(response.data);
             })
