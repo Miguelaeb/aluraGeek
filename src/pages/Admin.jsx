@@ -15,7 +15,7 @@ export default function Admin() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:303/products?category=StarWars")
+            .get("http://localhost:3000/products?category=StarWars")
             .then((response) => {
                 setStarWarsItems(response.data);
             })
@@ -24,7 +24,7 @@ export default function Admin() {
             });
 
         axios
-            .get("http://localhost:303/products?category=console")
+            .get("http://localhost:3000/products?category=console")
             .then((response) => {
                 setConsoleItems(response.data);
             })
@@ -33,7 +33,7 @@ export default function Admin() {
             });
 
         axios
-            .get("http://localhost:303/products?category=various")
+            .get("http://localhost:3000/products?category=various")
             .then((response) => {
                 setVariousItems(response.data);
             })
