@@ -105,9 +105,9 @@ export default function ViewAllVariousProducts() {
                             .map((item) => (
                                 <div
                                     key={item.id}
-                                    className="startWarsData-card flex flex-col gap-2">
+                                    className="startWarsData-card flex flex-col gap-2 lg:mb-4">
                                     <img
-                                        className=" w-full h-full"
+                                        className=" w-full h-48 object-cover"
                                         src={item.image}
                                         alt={item.name}
                                     />

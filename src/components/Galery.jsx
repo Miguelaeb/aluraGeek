@@ -75,7 +75,7 @@ export default function Galery() {
                             key={item.id}
                             className="startWarsData-card flex flex-col gap-2">
                             <img
-                                className=" w-full h-full"
+                                className=" w-full h-48 object-cover"
                                 src={item.image}
                                 alt={item.name}
                             />
@@ -115,7 +115,7 @@ export default function Galery() {
                             key={item.id}
                             className="consoleData-card flex flex-col gap-2">
                             <img
-                                className=" w-full h-full"
+                                className=" w-full h-48 object-cover"
                                 src={item.image}
                                 alt={item.name}
                             />
@@ -155,7 +155,7 @@ export default function Galery() {
                             key={item.id}
                             className="variousData-card flex flex-col gap-2">
                             <img
-                                className=" w-full h-full"
+                                className=" w-full h-48 object-cover"
                                 src={item.image}
                                 alt={item.name}
                             />

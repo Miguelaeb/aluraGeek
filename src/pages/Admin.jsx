@@ -99,7 +99,7 @@ export default function Admin() {
                                 key={starWarsItem.id}
                                 className="relative startWarsData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full h-full"
+                                    className=" w-full h-48 object-cover"
                                     src={starWarsItem.image}
                                     alt={starWarsItem.name}
                                 />
@@ -129,7 +129,7 @@ export default function Admin() {
                                 key={consoleItem.id}
                                 className="relative consoleData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full h-full"
+                                    className=" w-full h-48 object-cover"
                                     src={consoleItem.image}
                                     alt={consoleItem.name}
                                 />
@@ -159,7 +159,7 @@ export default function Admin() {
                                 key={variousItem.id}
                                 className="relative variousData-card flex flex-col gap-2">
                                 <img
-                                    className=" w-full h-full"
+                                    className=" w-full h-48 object-cover"
                                     src={variousItem.image}
                                     alt={variousItem.name}
                                 />

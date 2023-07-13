@@ -105,7 +105,7 @@ export default function ViewProduct() {
                     {selectedProduct && (
                         <div className=" md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
                             <img
-                                className=" w-full h-full"
+                                className=" w-full h-[400px] object-cover"
                                 src={selectedProduct.image}
                                 alt={selectedProduct.name}
                             />
@@ -136,7 +136,7 @@ export default function ViewProduct() {
                                         key={product.id}
                                         className="startWarsData-card flex flex-col gap-2">
                                         <img
-                                            className=" w-full h-full"
+                                            className=" w-full h-48 object-cover"
                                             src={product.image}
                                             alt={product.name}
                                         />
