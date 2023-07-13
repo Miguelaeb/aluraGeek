@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewAllStarWarsProducts() {
+    const [starWarsItems, setStarWarsItems] = useState([]);
     const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
@@ -16,16 +17,18 @@ export default function ViewAllStarWarsProducts() {
         }
     });
 
-    function handleResize() {
+    const handleResize = useCallback(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisiblestartWarsData(6);
+            if (starWarsItems.length !== 0) {
+                setVisiblestartWarsData(starWarsItems.length);
+            }
         } else if (screenWidth >= 375) {
             setVisiblestartWarsData(4);
         } else {
             setVisiblestartWarsData(2);
         }
-    }
+    }, [starWarsItems.length]);
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
@@ -33,9 +36,7 @@ export default function ViewAllStarWarsProducts() {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
-
-    const [starWarsItems, setStarWarsItems] = useState([]);
+    }, [handleResize]);
 
     useEffect(() => {
         axios
@@ -45,12 +46,16 @@ export default function ViewAllStarWarsProducts() {
                 const starWarsItemsData = data.filter(
                     (item) => item.category === "StarWars"
                 );
-                setStarWarsItems(starWarsItemsData);
+                if (starWarsItemsData.length !== 0) {
+                    setStarWarsItems(starWarsItemsData);
+                    setVisiblestartWarsData(starWarsItemsData.length);
+                }
             })
             .catch((error) => {
                 console.error("Error fetching product data:", error);
             });
     }, []);
+      
 
     return (
         <div>
@@ -106,7 +111,7 @@ export default function ViewAllStarWarsProducts() {
                                     key={item.id}
                                     className="startWarsData-card flex flex-col gap-2">
                                     <img
-                                        className="w-full"
+                                        className=" w-full h-full"
                                         src={item.image}
                                         alt={item.name}
                                     />

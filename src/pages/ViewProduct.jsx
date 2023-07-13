@@ -103,13 +103,12 @@ export default function ViewProduct() {
             <div className="flex flex-col justify-center bg-searchBar-background md:p-4 xl:p-0">
                 <div className="xl:max-w-[80rem] xl:mx-auto">
                     {selectedProduct && (
-                        <div className="md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
+                        <div className=" md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
                             <img
-                                className="w-full md:w-[15.875rem] lg:w-[80rem]"
+                                className=" w-full h-full"
                                 src={selectedProduct.image}
                                 alt={selectedProduct.name}
                             />
-
                             <div className="p-4 flex flex-col gap-2">
                                 <h2 className="font-Raleway font-medium text-[1.375rem] text-seconday-gray xl:text-[3.25rem]">
                                     {selectedProduct.name}
@@ -137,7 +136,7 @@ export default function ViewProduct() {
                                         key={product.id}
                                         className="startWarsData-card flex flex-col gap-2">
                                         <img
-                                            className="w-full"
+                                            className=" w-full h-full"
                                             src={product.image}
                                             alt={product.name}
                                         />

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewAllVariousProducts() {
+    const [consoleItems, setConsoleItems] = useState([]);
     const [visibleconsoleData, setVisibleconsoleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
@@ -16,16 +17,18 @@ export default function ViewAllVariousProducts() {
         }
     });
 
-    function handleResize() {
+    const handleResize = useCallback(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
-            setVisibleconsoleData(6);
+            if (consoleItems.length !== 0) {
+                setVisibleconsoleData(consoleItems.length);
+            }
         } else if (screenWidth >= 375) {
             setVisibleconsoleData(4);
         } else {
             setVisibleconsoleData(2);
         }
-    }
+    }, [consoleItems.length]);
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
@@ -33,16 +36,17 @@ export default function ViewAllVariousProducts() {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
-
-    const [consoleItems, setConsoleItems] = useState([]);
+    }, [handleResize]);
 
     useEffect(() => {
         axios.get("http://localhost:3001/products")
             .then((response) => {
                 const data = response.data;
                 const consoleItemsData = data.filter((item) => item.category === "console");
-                setConsoleItems(consoleItemsData);
+                if (consoleItemsData.length !== 0) {
+                    setConsoleItems(consoleItemsData);
+                    setVisibleconsoleData(consoleItemsData.length);
+                }
             })
             .catch((error) => {
                 console.error("Error fetching product data:", error);
@@ -103,7 +107,7 @@ export default function ViewAllVariousProducts() {
                                     key={item.id}
                                     className="startWarsData-card flex flex-col gap-2">
                                     <img
-                                        className="w-full"
+                                        className=" w-full h-full"
                                         src={item.image}
                                         alt={item.name}
                                     />
