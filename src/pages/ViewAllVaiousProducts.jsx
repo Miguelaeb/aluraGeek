@@ -5,6 +5,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewAllVariousProducts() {
+    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
     const [variousItems, setVariousItems] = useState([]);
     const [visiblevariousData, setVisiblevariousData] = useState(() => {
         const screenWidth = window.innerWidth;
@@ -39,7 +40,7 @@ export default function ViewAllVariousProducts() {
     }, [handleResize]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/products")
+        axios.get(URL)
             .then((response) => {
                 const data = response.data;
                 const variousItemsData = data.filter((item) => item.category === "various");

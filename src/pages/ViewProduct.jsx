@@ -5,11 +5,12 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewProduct() {
+    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
     const { id } = useParams();
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/products/${id}`)
+        axios.get(`${URL}/${id}`)
             .then((response) => {
                 setSelectedProduct(response.data);
             })
@@ -52,7 +53,7 @@ export default function ViewProduct() {
 
     useEffect(() => {
         if (selectedProduct) {
-            axios.get(`http://localhost:3001/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
+            axios.get(`https://alura-geek-gamma-ivory.vercel.app/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
                 .then((response) => {
                     setSimilarProducts(response.data);
                 })

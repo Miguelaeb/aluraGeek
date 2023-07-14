@@ -5,6 +5,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function ViewAllStarWarsProducts() {
+    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
     const [starWarsItems, setStarWarsItems] = useState([]);
     const [visiblestartWarsData, setVisiblestartWarsData] = useState(() => {
         const screenWidth = window.innerWidth;
@@ -40,7 +41,7 @@ export default function ViewAllStarWarsProducts() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/products")
+            .get(URL)
             .then((response) => {
                 const data = response.data;
                 const starWarsItemsData = data.filter(
