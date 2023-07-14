@@ -13,7 +13,7 @@ export default function Header() {
                 </p>
                 <Link to="/viewAllConsoleProducts">
                     <button className=" font-Raleway font-semibold text-sm bg-primary-blue text-white w-32 py-3 px-4 hover:scale-110 transition duration-300 ease-in-out">
-                        Ver Consola
+                        Ver Consolas
                     </button>
                 </Link>
             </div>
