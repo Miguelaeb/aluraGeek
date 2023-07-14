@@ -16,7 +16,9 @@ export default function Admin() {
 
     useEffect(() => {
         axios
-            .get("https://alura-geek-gamma-ivory.vercel.app/products?category=StarWars")
+            .get(
+                "https://alura-geek-gamma-ivory.vercel.app/products?category=StarWars"
+            )
             .then((response) => {
                 setStarWarsItems(response.data);
             })
@@ -25,7 +27,9 @@ export default function Admin() {
             });
 
         axios
-            .get("https://alura-geek-gamma-ivory.vercel.app/products?category=console")
+            .get(
+                "https://alura-geek-gamma-ivory.vercel.app/products?category=console"
+            )
             .then((response) => {
                 setConsoleItems(response.data);
             })
@@ -34,7 +38,9 @@ export default function Admin() {
             });
 
         axios
-            .get("https://alura-geek-gamma-ivory.vercel.app/products?category=various")
+            .get(
+                "https://alura-geek-gamma-ivory.vercel.app/products?category=various"
+            )
             .then((response) => {
                 setVariousItems(response.data);
             })
@@ -82,11 +88,13 @@ export default function Admin() {
                                         src="images/delete__icon.svg"
                                         alt=""
                                     />
-                                    <img
-                                        className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
-                                        src="images/edit__icon.svg"
-                                        alt=""
-                                    />
+                                    <Link to="/editProduct">
+                                        <img
+                                            className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
+                                            src="images/edit__icon.svg"
+                                            alt=""
+                                        />
+                                    </Link>
                                 </div>
                             </div>
                         ))}
