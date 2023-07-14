@@ -17,7 +17,7 @@ export default function Footer() {
                             <i className="fa-brands fa-github text-xl hover:text-primary-blue"></i>
                         </a>
                         <a
-                            href="https://twitter.com/Miguel_Studded"
+                            href="https://twitter.com/MiguelEvan56212"
                             target="_blank"
                             rel="noreferrer">
                             <i className="fa-brands fa-twitter text-xl hover:text-primary-blue"></i>
