@@ -43,63 +43,44 @@ export default function AddProduct() {
                         className="flex flex-col gap-4 mt-4"
                         onSubmit={handleSubmit}>
                         <div>
-                            <label
-                                htmlFor="imageFile"
-                                className="sr-only hidden">
-                                Imagen:
-                            </label>
-                            <input
-                                className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none bg-white"
-                                type="file"
-                                id="imageFile"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                            />
-                        </div>
-                        <div>
-                            {imageUrl && (
+                            <div>
+                                <label
+                                    htmlFor="imageFile"
+                                    className=" sr-only hidden">
+                                    Imagen:
+                                </label>
+                                <input
+                                    className=" block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none bg-white"
+                                    type="file"
+                                    id="imageFile"
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                />
+                            </div>
+                            <div>
                                 <img
                                     src={imageUrl}
                                     alt="Vista previa de la imagen"
-                                    className=" max-w-full h-auto"
+                                    className="mt-2 max-w-full h-auto"
                                 />
-                            )}
+                            </div>
                         </div>
-
                         <div>
                             <label
-                                htmlFor="categoria"
-                                className="sr-only hidden">
+                                className="sr-only hidden"
+                                htmlFor="categoria">
                                 Categoría:
                             </label>
-                            <select
-                                className="block cursor-pointer p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
+                            <input
+                                className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
+                                type="text"
                                 id="categoria"
+                                placeholder="Categoria"
                                 value={categoria}
                                 onChange={(event) =>
                                     setCategoria(event.target.value)
-                                }>
-                                <option
-                                    className=" font-Raleway font-medium text-lg text-seconday-gray cursor-pointer"
-                                    value="">
-                                    Selecciona una categoría
-                                </option>
-                                <option
-                                    className=" font-Raleway font-medium text-lg text-seconday-gray cursor-pointer "
-                                    value="StarWars">
-                                    StarWars
-                                </option>
-                                <option
-                                    className=" font-Raleway font-medium text-lg text-seconday-gray cursor-pointer "
-                                    value="console">
-                                    console
-                                </option>
-                                <option
-                                    className=" font-Raleway font-medium text-lg text-seconday-gray cursor-pointer "
-                                    value="various">
-                                    various
-                                </option>
-                            </select>
+                                }
+                            />
                         </div>
                         <div>
                             <label
