@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Galery() {
-    // const URL = "https://alura-geek-gamma-ivory.vercel.app/";
+    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
     const [visibleData, setVisibleData] = useState(() => {
         const screenWidth = window.innerWidth;
         if (screenWidth >= 1000) {
@@ -38,7 +38,7 @@ export default function Galery() {
     const [variousItems, setVariousItems] = useState([]);
 
     useEffect(() => {
-        axios.get("https://alura-geek-gamma-ivory.vercel.app/products")
+        axios.get(URL)
           .then((response) => {
             const data = response.data;
             const starWarsItemsData = data.filter((item) => item.category === "StarWars");
