@@ -33,12 +33,12 @@ export default function Contact() {
         // Name validation: allow only letters and spaces
         const namePattern = /^[A-Za-z\s]+$/;
         if (!formData.name.match(namePattern)) {
-            newErrors.name = "Invalid name format";
+            newErrors.name = "Formato de nombre invalido";
         }
 
         // Message validation: at least 5 characters
         if (formData.message.length < 5) {
-            newErrors.message = "Message must be at least 5 characters long";
+            newErrors.message = "El mensaje de tener al menos 5 caracteres";
         }
 
         setErrors(newErrors);
