@@ -4,25 +4,15 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function AddProduct() {
-    // eslint-disable-next-line
-    const [imageFile, setImageFile] = useState(null);
     const [imageUrl, setImageUrl] = useState("");
     const [categoria, setCategoria] = useState("");
     const [nombreProducto, setNombreProducto] = useState("");
     const [precioProducto, setPrecioProducto] = useState("");
     const [descripcionProducto, setDescripcionProducto] = useState("");
 
-    const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        setImageFile(file);
-        const imageURL = URL.createObjectURL(file);
-        setImageUrl(imageURL);
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setImageFile(null);
         setImageUrl("");
         setCategoria("");
         setNombreProducto("");
@@ -33,8 +23,8 @@ export default function AddProduct() {
     return (
         <div>
             <div className=" m-4 lg:m-8">
-                <nav className=" xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
-                    <div className=" flex justify-center items-center gap-8">
+                <nav className="xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
+                    <div className="flex justify-center items-center gap-8">
                         <Link to="/">
                             <img
                                 className="md:w-28 lg:w-36 cursor-pointer"
@@ -47,7 +37,7 @@ export default function AddProduct() {
                             <input
                                 type="text"
                                 placeholder="¿Qué deseas buscar?"
-                                className=" font-Raleway font-normal text-sm w-72 xl:w-[24.7rem] text-seconday-gray border bg-searchBar-background rounded-full py-2 px-4 focus:outline-none focus:border-primary-blue"
+                                className="font-Raleway font-normal text-sm w-72 xl:w-[24.7rem] text-seconday-gray border bg-searchBar-background rounded-full py-2 px-4 focus:outline-none focus:border-primary-blue"
                             />
 
                             <img
@@ -65,7 +55,7 @@ export default function AddProduct() {
                             </button>
                         </Link>
                         <img
-                            className=" md:hidden"
+                            className="md:hidden"
                             src="images/search__icon.svg"
                             alt="search icon"
                         />
@@ -82,27 +72,28 @@ export default function AddProduct() {
                         className="flex flex-col gap-4 mt-4"
                         onSubmit={handleSubmit}>
                         <div>
-                            <div>
-                                <label
-                                    htmlFor="imageFile"
-                                    className=" sr-only hidden">
-                                    Imagen:
-                                </label>
-                                <input
-                                    className=" block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none bg-white"
-                                    type="file"
-                                    id="imageFile"
-                                    accept="image/*"
-                                    onChange={handleFileChange}
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src={imageUrl}
-                                    alt="Vista previa de la imagen"
-                                    className="mt-2 max-w-full h-auto"
-                                />
-                            </div>
+                            <label
+                                className="sr-only hidden"
+                                htmlFor="imageUrl">
+                                URL de la imagen:
+                            </label>
+                            <input
+                                className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
+                                type="text"
+                                id="imageUrl"
+                                placeholder="URL de la imagen"
+                                value={imageUrl}
+                                onChange={(event) =>
+                                    setImageUrl(event.target.value)
+                                }
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src={imageUrl}
+                                alt="Vista previa de la imagen"
+                                className="mt-2 max-w-full h-auto"
+                            />
                         </div>
                         <div>
                             <label
@@ -114,7 +105,7 @@ export default function AddProduct() {
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
                                 id="categoria"
-                                placeholder="Categoria"
+                                placeholder="Categoría"
                                 value={categoria}
                                 onChange={(event) =>
                                     setCategoria(event.target.value)
