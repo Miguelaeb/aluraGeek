@@ -71,6 +71,14 @@ export default function AddProduct() {
                     <form
                         className="flex flex-col gap-4 mt-4"
                         onSubmit={handleSubmit}>
+                        <div className=" w-full md:w-1/2 h-[15rem] rounded-lg border-2 border-dashed border-primary-blue">
+                            <img
+                                src={imageUrl}
+                                alt="Vista previa de la imagen"
+                                className=" w-full h-full"
+                            />
+                        </div>
+
                         <div>
                             <label
                                 className="sr-only hidden"
@@ -88,13 +96,7 @@ export default function AddProduct() {
                                 }
                             />
                         </div>
-                        <div>
-                            <img
-                                src={imageUrl}
-                                alt="Vista previa de la imagen"
-                                className="mt-2 max-w-full h-auto"
-                            />
-                        </div>
+
                         <div>
                             <label
                                 className="sr-only hidden"
