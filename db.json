@@ -53,7 +53,7 @@
       "price": "100.00",
       "image": "https://f.rpp-noticias.io/2021/09/01/1138910alex-motoc-0powk6iairq-unsplashjpg.jpg",
       "id": "7",
-      "category": "Console",
+      "category": "console",
       "description": "La Xbox One S es una consola de videojuegos de Microsoft que ofrece una experiencia de juego inmersiva y diversión sin límites. Esta consola representa la evolución de la popular Xbox One, con mejoras en diseño, rendimiento y funcionalidades."
       },
       {
@@ -61,15 +61,15 @@
       "price": "400.00",
       "image": "https://i.ibb.co/0BpJthg/consola-2.png",
       "id": "8",
-      "category": "Console",
-      "description": "PlayStation 5 (PS5) es la última generación de Console de videojuegos de Sony, que ofrece una experiencia de juego de vanguardia y una inmersión total en el mundo de los videojuegos. Diseñada para brindar potencia, rendimiento y gráficos de alta calidad, la PS5 lleva los juegos a un nuevo nivel."
+      "category": "console",
+      "description": "PlayStation 5 (PS5) es la última generación de console de videojuegos de Sony, que ofrece una experiencia de juego de vanguardia y una inmersión total en el mundo de los videojuegos. Diseñada para brindar potencia, rendimiento y gráficos de alta calidad, la PS5 lleva los juegos a un nuevo nivel."
       },
       {
       "name": "Nintendo NES",
       "price": "49.99",
       "image": "https://i.ibb.co/JQjVwYX/consola-3.png",
       "id": "9",
-      "category": "Console",
+      "category": "console",
       "description": "La NES se caracteriza por su diseño retro y su distintivo controlador rectangular de dos botones. Esta consola revolucionaria trajo a los hogares una amplia variedad de juegos icónicos, desde Super Mario Bros. hasta The Legend of Zelda, y creó un impacto duradero en la cultura del videojuego."
       },
       {
@@ -77,7 +77,7 @@
       "price": "200.00",
       "image": "https://i.ibb.co/b3xr74X/consola-4.png",
       "id": "10",
-      "category": "Console",
+      "category": "console",
       "description": "Nintendo Switch es una consola de videojuegos híbrida que combina la experiencia de juego en el hogar con la portabilidad. Esta innovadora consola de Nintendo ofrece una versatilidad única y brinda a los jugadores la libertad de jugar cuando y donde quieran."
       },
       {
@@ -85,15 +85,15 @@
       "price": "400.00",
       "image": "https://i.ibb.co/SrSD1fz/consola-5.png",
       "id": "11",
-      "category": "Console",
-      "description": "La Xbox Series X es la última generación de Console de videojuegos de Microsoft, diseñada para ofrecer una experiencia de juego de próxima generación y un rendimiento excepcional. Esta potente consola redefine los límites del juego y lleva la diversión a un nivel completamente nuevo."
+      "category": "console",
+      "description": "La Xbox Series X es la última generación de console de videojuegos de Microsoft, diseñada para ofrecer una experiencia de juego de próxima generación y un rendimiento excepcional. Esta potente consola redefine los límites del juego y lleva la diversión a un nivel completamente nuevo."
       },
       {
       "name": "Game Boy Color",
       "price": "60.00",
       "image": "https://i.ibb.co/SX5xWzC/consola-6.png",
       "id": "12",
-      "category": "Console",
+      "category": "console",
       "description": "Voluptas voluptatum quibusdam similique, class debitis alias maecenas eveniet ridiculus, facilis fusce! Ullam conubia? Sociis, minima malesuada habit."
       },
       {
