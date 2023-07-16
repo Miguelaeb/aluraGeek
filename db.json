@@ -1,12 +1,12 @@
 {
   "products": [
       {
-      "name": "Taza StarWars",
+      "name": "Mandalorian",
       "price": "13,99",
       "image": "https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "id": "1",
       "category": "StarWars",
-      "description": "Mini tazas Edición Limitada para coleccionistas, Esta mini taza (110ml) es pate de nuestra Edición de Oro de mini tazas con todos tus personajes favoritos. ¡Empieza hoy tu colección!"
+      "description": "Los mandalorianos son una raza de guerreros la cual sigue la religión Mandaloriana, conocidos por sus grandes habilidades bélicas, lo que los convierte en grandes guerreros, asesinos y mercenarios."
       },
       {
       "name": "LEGO 75304",

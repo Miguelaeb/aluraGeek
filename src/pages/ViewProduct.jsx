@@ -149,7 +149,7 @@ export default function ViewProduct() {
                                         </p>
                                         <Link to={`/viewProduct/${product.id}`}>
                                             <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                                {product.button}
+                                                Ver producto
                                             </button>
                                         </Link>
                                     </div>

@@ -124,7 +124,7 @@ export default function ViewAllStarWarsProducts() {
                                     </p>
                                     <Link to={`/viewProduct/${item.id}`}>
                                         <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                            {item.button}
+                                            Ver producto
                                         </button>
                                     </Link>
                                 </div>
