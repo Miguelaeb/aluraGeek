@@ -10,7 +10,8 @@ export default function ViewProduct() {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
-        axios.get(`${URL}/${id}`)
+        axios
+            .get(`${URL}/${id}`)
             .then((response) => {
                 setSelectedProduct(response.data);
             })
@@ -53,12 +54,18 @@ export default function ViewProduct() {
 
     useEffect(() => {
         if (selectedProduct) {
-            axios.get(`https://alura-geek-gamma-ivory.vercel.app/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`)
+            axios
+                .get(
+                    `https://alura-geek-gamma-ivory.vercel.app/products?category=${selectedProduct.category}&id_ne=${selectedProduct.id}`
+                )
                 .then((response) => {
                     setSimilarProducts(response.data);
                 })
                 .catch((error) => {
-                    console.error("Error fetching similar products data:", error);
+                    console.error(
+                        "Error fetching similar products data:",
+                        error
+                    );
                 });
         }
     }, [selectedProduct]);
@@ -133,26 +140,27 @@ export default function ViewProduct() {
                             {similarProducts
                                 .slice(0, visibleData)
                                 .map((product) => (
-                                    <div
+                                    <Link
+                                        to={`/viewProduct/${product.id}`}
                                         key={product.id}
-                                        className="startWarsData-card flex flex-col gap-2">
+                                        className=" relative flex flex-col gap-2">
+                                        <div className="w-full h-48 overflow-hidden">
                                         <img
-                                            className=" w-full h-48 object-cover"
+                                            className=" w-full h-full object-cover transition-transform duration-300 transform-gpu hover:scale-110"
                                             src={product.image}
                                             alt={product.name}
                                         />
+                                        </div>
                                         <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
                                             {product.name}
                                         </h3>
                                         <p className="font-Raleway font-bold text-base text-seconday-gray">
                                             {product.price}
                                         </p>
-                                        <Link to={`/viewProduct/${product.id}`}>
-                                            <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                                Ver producto
-                                            </button>
-                                        </Link>
-                                    </div>
+                                        <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                            Ver producto
+                                        </button>
+                                    </Link>
                                 ))}
                         </div>
                     </div>

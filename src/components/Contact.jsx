@@ -49,11 +49,13 @@ export default function Contact() {
         <section className="w-full bg-section-background px-4 py-8 md:py-16">
             <div className="lg:max-w-[80rem] mx-auto flex flex-col justify-center gap-8 md:flex-row">
                 <div className="flex flex-col w-full md:w-1/2 xl:w-full items-center gap-4 xl:gap-40 md:items-start xl:flex-row">
-                    <img
-                        className="justify-center"
-                        src="/images/contactLogo.svg"
-                        alt="contact logo"
-                    />
+                    <Link to="/">
+                        <img
+                            className="md:w-28 lg:w-36 cursor-pointer"
+                            src="images/alurageek__logo.svg"
+                            alt="aluraGeek logo"
+                        />
+                    </Link>
                     <div className="flex flex-col gap-4 md:w-64 md:items-start">
                         <Link className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Quiénes Somos

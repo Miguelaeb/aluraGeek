@@ -28,6 +28,7 @@ export default function Galery() {
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
+        window.scrollTo(0, 0);
         return () => {
             window.removeEventListener("resize", handleResize);
         };
@@ -38,21 +39,28 @@ export default function Galery() {
     const [variousItems, setVariousItems] = useState([]);
 
     useEffect(() => {
-        axios.get(URL)
-          .then((response) => {
-            const data = response.data;
-            const starWarsItemsData = data.filter((item) => item.category === "StarWars");
-            const consoleItemsData = data.filter((item) => item.category === "console");
-            const variousItemsData = data.filter((item) => item.category === "various");
-    
-            setStarWarsItems(starWarsItemsData);
-            setConsoleItems(consoleItemsData);
-            setVariousItems(variousItemsData);
-          })
-          .catch((error) => {
-            console.error("Error fetching product data:", error);
-          });
-      }, []);
+        axios
+            .get(URL)
+            .then((response) => {
+                const data = response.data;
+                const starWarsItemsData = data.filter(
+                    (item) => item.category === "StarWars"
+                );
+                const consoleItemsData = data.filter(
+                    (item) => item.category === "console"
+                );
+                const variousItemsData = data.filter(
+                    (item) => item.category === "various"
+                );
+
+                setStarWarsItems(starWarsItemsData);
+                setConsoleItems(consoleItemsData);
+                setVariousItems(variousItemsData);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, []);
 
     return (
         <section className="flex flex-col gap-4 md:gap-8 lg:gap-16">
@@ -70,28 +78,29 @@ export default function Galery() {
                         <img src="images/arrow.svg" alt="" />
                     </div>
                 </div>
-                <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {starWarsItems.slice(0, visibleData).map((item) => (
-                        <div
+                        <Link
+                            to={`/viewProduct/${item.id}`}
                             key={item.id}
-                            className="startWarsData-card flex flex-col gap-2">
-                            <img
-                                className=" w-full h-48 object-cover"
-                                src={item.image}
-                                alt={item.name}
-                            />
+                            className=" relative flex flex-col gap-2">
+                            <div className="w-full h-48 overflow-hidden">
+                                <img
+                                    className=" w-full h-full object-cover transition-transform duration-300 transform-gpu hover:scale-110"
+                                    src={item.image}
+                                    alt={item.name}
+                                />
+                            </div>
                             <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
                                 {item.name}
                             </h3>
                             <p className="font-Raleway font-bold text-base text-seconday-gray">
                                 {item.price}
                             </p>
-                            <Link to={`/viewProduct/${item.id}`}>
-                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    Ver producto
-                                </button>
-                            </Link>
-                        </div>
+                            <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                Ver producto
+                            </button>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -112,26 +121,27 @@ export default function Galery() {
                 </div>
                 <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {consoleItems.slice(0, visibleData).map((item) => (
-                        <div
+                        <Link
+                            to={`/viewProduct/${item.id}`}
                             key={item.id}
-                            className="consoleData-card flex flex-col gap-2">
-                            <img
-                                className=" w-full h-48 object-cover"
-                                src={item.image}
-                                alt={item.name}
-                            />
+                            className="relative flex flex-col gap-2">
+                            <div className="w-full h-48 overflow-hidden">
+                                <img
+                                    className="w-full h-full object-cover transition-transform duration-300 transform-gpu hover:scale-110"
+                                    src={item.image}
+                                    alt={item.name}
+                                />
+                            </div>
                             <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
                                 {item.name}
                             </h3>
                             <p className="font-Raleway font-bold text-base text-seconday-gray">
                                 {item.price}
                             </p>
-                            <Link to={`/viewProduct/${item.id}`}>
-                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    Ver producto
-                                </button>
-                            </Link>
-                        </div>
+                            <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                Ver producto
+                            </button>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -152,26 +162,27 @@ export default function Galery() {
                 </div>
                 <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {variousItems.slice(0, visibleData).map((item) => (
-                        <div
+                        <Link
+                            to={`/viewProduct/${item.id}`}
                             key={item.id}
-                            className="variousData-card flex flex-col gap-2">
-                            <img
-                                className=" w-full h-48 object-cover"
-                                src={item.image}
-                                alt={item.name}
-                            />
+                            className="relative flex flex-col gap-2">
+                            <div className="w-full h-48 overflow-hidden">
+                                <img
+                                    className="w-full h-full object-cover transition-transform duration-300 transform-gpu hover:scale-110"
+                                    src={item.image}
+                                    alt={item.name}
+                                />
+                            </div>
                             <h3 className="font-Raleway font-medium text-sm text-seconday-gray">
                                 {item.name}
                             </h3>
                             <p className="font-Raleway font-bold text-base text-seconday-gray">
                                 {item.price}
                             </p>
-                            <Link to={`/viewProduct/${item.id}`}>
-                                <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
-                                    Ver producto
-                                </button>
-                            </Link>
-                        </div>
+                            <button className="font-Raleway font-bold text-sm text-left text-primary-blue">
+                                Ver producto
+                            </button>
+                        </Link>
                     ))}
                 </div>
             </div>
