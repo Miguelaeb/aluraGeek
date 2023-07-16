@@ -2,7 +2,7 @@
   "products": [
       {
       "name": "Mandalorian",
-      "price": "13,99",
+      "price": "13.99",
       "image": "https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "id": "1",
       "category": "StarWars",
@@ -10,7 +10,7 @@
       },
       {
       "name": "LEGO 75304",
-      "price": "20,00",
+      "price": "20.00",
       "image": "https://blogoem.ezoty.com/wp-content/uploads/2022/02/Placeholder-5.png",
       "id": "2",
       "category": "StarWars",
@@ -42,7 +42,7 @@
       },
       {
       "name": "Kylo Ren",
-      "price": "6000",
+      "price": "60.00",
       "image": "https://i.ibb.co/VjsTyxm/producto-6.png",
       "id": "6",
       "category": "StarWars",
@@ -58,7 +58,7 @@
       },
       {
       "name": "PS5 Consola",
-      "price": "400.00",
+      "price": "500.00",
       "image": "https://i.ibb.co/0BpJthg/consola-2.png",
       "id": "8",
       "category": "console",
@@ -90,7 +90,7 @@
       },
       {
       "name": "Game Boy Color",
-      "price": "60.00",
+      "price": "600.00",
       "image": "https://i.ibb.co/SX5xWzC/consola-6.png",
       "id": "12",
       "category": "console",
