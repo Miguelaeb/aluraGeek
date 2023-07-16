@@ -38,7 +38,7 @@ export default function Contact() {
 
         // Message validation: at least 5 characters
         if (formData.message.length < 5) {
-            newErrors.message = "El mensaje de tener al menos 5 caracteres";
+            newErrors.message = "El mensaje debe tener al menos 5 caracteres";
         }
 
         setErrors(newErrors);

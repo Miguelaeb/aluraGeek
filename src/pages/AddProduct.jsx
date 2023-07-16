@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function AddProduct() {
+    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
     const [imageUrl, setImageUrl] = useState("");
     const [categoria, setCategoria] = useState("");
     const [nombreProducto, setNombreProducto] = useState("");
@@ -13,10 +16,30 @@ export default function AddProduct() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setImageUrl("");
-        setCategoria("");
+        const newProduct = {
+            id: uuidv4(), // Genera un ID único
+            image: imageUrl,
+            category: categoria,
+            name: nombreProducto,
+            price: precioProducto,
+            description: descripcionProducto,
+        };
+
+        axios
+            .post(URL, newProduct)
+            .then((response) => {
+                console.log("Producto agregado con éxito:", response.data);
+                // Lógica adicional después de agregar el producto
+            })
+            .catch((error) => {
+                console.error("Error al agregar el producto:", error);
+                // Lógica adicional en caso de error
+            });
+
         setNombreProducto("");
         setPrecioProducto("");
+        setImageUrl("");
+        setCategoria("");
         setDescripcionProducto("");
     };
 
@@ -71,7 +94,7 @@ export default function AddProduct() {
                     <form
                         className="flex flex-col gap-4 mt-4"
                         onSubmit={handleSubmit}>
-                        <div className=" w-full md:w-1/2 h-[15rem] rounded-lg border-2 border-dashed border-primary-blue">
+                        <div className=" w-full md:w-1/2 h-[15rem] rounded-lg border-2 border-dashed border-primary-blue bg-white">
                             <img
                                 src={imageUrl}
                                 alt="Vista previa de la imagen"

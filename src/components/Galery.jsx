@@ -163,7 +163,7 @@ export default function Galery() {
                 <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {variousItems.slice(0, visibleData).map((item) => (
                         <Link
-                            to={`/viewProduct/${item.id}`}
+                            to={`/viewPrVarit/${item.id}`}
                             key={item.id}
                             className="relative flex flex-col gap-2">
                             <div className="w-full h-48 overflow-hidden">

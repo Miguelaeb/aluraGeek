@@ -113,11 +113,11 @@ export default function ViewProduct() {
                     {selectedProduct && (
                         <div className=" md:flex md:flex-row md:gap-4 lg:justify-center lg:items-center xl:mt-16">
                             <img
-                                className=" w-full h-[400px] object-cover"
+                                className=" w-1/2 h-[400px] object-cover"
                                 src={selectedProduct.image}
                                 alt={selectedProduct.name}
                             />
-                            <div className="p-4 flex flex-col gap-2">
+                            <div className=" w-1/2 p-4 flex flex-col gap-2">
                                 <h2 className="font-Raleway font-medium text-[1.375rem] text-seconday-gray xl:text-[3.25rem]">
                                     {selectedProduct.name}
                                 </h2>
