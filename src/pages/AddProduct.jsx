@@ -12,9 +12,14 @@ export default function AddProduct() {
     const [nombreProducto, setNombreProducto] = useState("");
     const [precioProducto, setPrecioProducto] = useState("");
     const [descripcionProducto, setDescripcionProducto] = useState("");
+    const [errors, setErrors] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
 
         const newProduct = {
             id: uuidv4(), // Genera un ID único
@@ -41,6 +46,47 @@ export default function AddProduct() {
         setImageUrl("");
         setCategoria("");
         setDescripcionProducto("");
+        setErrors({});
+    };
+
+    const validateForm = () => {
+        let hasErrors = false;
+        const newErrors = {};
+
+        if (!imageUrl) {
+            newErrors.imageUrl = "Debes proporcionar una URL de imagen";
+            hasErrors = true;
+        }
+
+        if (
+            !categoria ||
+            !["StarWars", "console", "various"].includes(categoria)
+        ) {
+            newErrors.categoria = "Debes seleccionar una categoría válida";
+            hasErrors = true;
+        }
+
+        if (!nombreProducto) {
+            newErrors.nombreProducto =
+                "Debes proporcionar un nombre de producto";
+            hasErrors = true;
+        }
+
+        if (!precioProducto) {
+            newErrors.precioProducto =
+                "Debes proporcionar un precio de producto";
+            hasErrors = true;
+        }
+
+        if (!descripcionProducto) {
+            newErrors.descripcionProducto =
+                "Debes proporcionar una descripción de producto";
+            hasErrors = true;
+        }
+
+        setErrors(newErrors);
+
+        return !hasErrors;
     };
 
     return (
@@ -103,11 +149,7 @@ export default function AddProduct() {
                         </div>
 
                         <div>
-                            <label
-                                className="sr-only hidden"
-                                htmlFor="imageUrl">
-                                URL de la imagen:
-                            </label>
+                            <label className=" hidden" htmlFor="imageUrl">URL de la imagen:</label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -118,14 +160,15 @@ export default function AddProduct() {
                                     setImageUrl(event.target.value)
                                 }
                             />
+                            {errors.imageUrl && (
+                                <p className="font-Raleway font-medium text-red-500">
+                                    {errors.imageUrl}
+                                </p>
+                            )}
                         </div>
 
                         <div>
-                            <label
-                                className="sr-only hidden"
-                                htmlFor="categoria">
-                                Categoría:
-                            </label>
+                            <label className=" hidden" htmlFor="categoria">Categoría:</label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -136,11 +179,15 @@ export default function AddProduct() {
                                     setCategoria(event.target.value)
                                 }
                             />
+                            {errors.categoria && (
+                                <p className="font-Raleway font-medium text-red-500">
+                                    {errors.categoria}
+                                </p>
+                            )}
                         </div>
+
                         <div>
-                            <label
-                                className="sr-only hidden"
-                                htmlFor="nombreProducto">
+                            <label className=" hidden" htmlFor="nombreProducto">
                                 Nombre del producto:
                             </label>
                             <input
@@ -153,11 +200,15 @@ export default function AddProduct() {
                                     setNombreProducto(event.target.value)
                                 }
                             />
+                            {errors.nombreProducto && (
+                                <p className="font-Raleway font-medium text-red-500">
+                                    {errors.nombreProducto}
+                                </p>
+                            )}
                         </div>
+
                         <div>
-                            <label
-                                className="sr-only hidden"
-                                htmlFor="precioProducto">
+                            <label className=" hidden" htmlFor="precioProducto">
                                 Precio del producto:
                             </label>
                             <input
@@ -170,11 +221,14 @@ export default function AddProduct() {
                                     setPrecioProducto(event.target.value)
                                 }
                             />
+                            {errors.precioProducto && (
+                                <p className="font-Raleway font-medium text-red-500">
+                                    {errors.precioProducto}
+                                </p>
+                            )}
                         </div>
                         <div>
-                            <label
-                                className="sr-only hidden"
-                                htmlFor="descripcionProducto">
+                            <label className=" hidden" htmlFor="descripcionProducto">
                                 Descripción del producto:
                             </label>
                             <textarea
@@ -186,6 +240,11 @@ export default function AddProduct() {
                                     setDescripcionProducto(event.target.value)
                                 }
                             />
+                            {errors.descripcionProducto && (
+                                <p className="font-Raleway font-medium text-red-500">
+                                    {errors.descripcionProducto}
+                                </p>
+                            )}
                         </div>
 
                         <div className="flex justify-center">
