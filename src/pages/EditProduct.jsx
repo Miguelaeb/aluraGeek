@@ -33,11 +33,11 @@ export default function EditProduct() {
         axios
             .post(URL, newProduct)
             .then((response) => {
-                console.log("Producto agregado con éxito:", response.data);
+                console.log("Producto editado con éxito:", response.data);
                 // Lógica adicional después de agregar el producto
             })
             .catch((error) => {
-                console.error("Error al agregar el producto:", error);
+                console.error("Error al editar el producto:", error);
                 // Lógica adicional en caso de error
             });
 

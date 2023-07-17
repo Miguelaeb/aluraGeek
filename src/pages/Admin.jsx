@@ -120,7 +120,7 @@ export default function Admin() {
                                         />
                                     </svg>
 
-                                    <Link to="/editProduct">
+                                    <Link to={`/editProduct/${starWarsItem.id}`}>
                                         <svg
                                             className=" fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
                                             width="19"
