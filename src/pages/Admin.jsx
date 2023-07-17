@@ -43,17 +43,13 @@ export default function Admin() {
       });
   }, []);
 
-  const removeProduct = (productId) => {
-    setStarWarsItems(starWarsItems.filter((item) => item.id !== productId));
-    setConsoleItems(consoleItems.filter((item) => item.id !== productId));
-    setVariousItems(variousItems.filter((item) => item.id !== productId));
-  };
-
   const deleteProduct = (productId) => {
     axios
       .delete(`https://alura-geek-gamma-ivory.vercel.app/products/${productId}`)
       .then((response) => {
-        removeProduct(productId); // Llama a la función removeProduct después de eliminar el producto
+        setStarWarsItems(starWarsItems.filter((item) => item.id !== productId));
+        setConsoleItems(consoleItems.filter((item) => item.id !== productId));
+        setVariousItems(variousItems.filter((item) => item.id !== productId));
       })
       .catch((error) => {
         console.error("Error deleting product:", error);
@@ -160,17 +156,17 @@ export default function Admin() {
                   />
                   <img
                     className="cursor-pointer hover:scale-110 transition duration-300 ease-in-out"
-src="images/edit__icon.svg"
-alt=""
-/>
-</div>
-</div>
-))}
-</div>
-</div>
-</div>
-<Contact />
-<Footer />
-</div>
-);
+                    src="images/edit__icon.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <Contact />
+      <Footer />
+    </div>
+  );
 }
