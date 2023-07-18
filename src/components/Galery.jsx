@@ -119,7 +119,7 @@ export default function Galery() {
                         <img src="images/arrow.svg" alt="" />
                     </div>
                 </div>
-                <div className="w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className=" w-full grid grid-cols-2 mt-4 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     {consoleItems.slice(0, visibleData).map((item) => (
                         <Link
                             to={`/viewProduct/${item.id}`}

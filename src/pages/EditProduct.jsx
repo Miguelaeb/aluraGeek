@@ -1,18 +1,34 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function EditProduct() {
-    const URL = "https://alura-geek-gamma-ivory.vercel.app/products";
+    const { id } = useParams();
+    const [product, setProduct] = useState({});
     const [imageUrl, setImageUrl] = useState("");
     const [categoria, setCategoria] = useState("");
     const [nombreProducto, setNombreProducto] = useState("");
     const [precioProducto, setPrecioProducto] = useState("");
     const [descripcionProducto, setDescripcionProducto] = useState("");
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        axios
+            .get(`https://alura-geek-gamma-ivory.vercel.app/products/${id}`)
+            .then((response) => {
+                setProduct(response.data);
+                setImageUrl(response.data.image);
+                setCategoria(response.data.category);
+                setNombreProducto(response.data.name);
+                setPrecioProducto(response.data.price);
+                setDescripcionProducto(response.data.description);
+            })
+            .catch((error) => {
+                console.error("Error fetching product data:", error);
+            });
+    }, [id]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,8 +37,8 @@ export default function EditProduct() {
             return;
         }
 
-        const newProduct = {
-            id: uuidv4(), // Genera un ID único
+        const updatedProduct = {
+            id: product.id,
             image: imageUrl,
             category: categoria,
             name: nombreProducto,
@@ -31,21 +47,19 @@ export default function EditProduct() {
         };
 
         axios
-            .post(URL, newProduct)
+            .put(
+                `https://alura-geek-gamma-ivory.vercel.app/products/${id}`,
+                updatedProduct
+            )
             .then((response) => {
-                console.log("Producto editado con éxito:", response.data);
-                // Lógica adicional después de agregar el producto
+                console.log("Producto actualizado con éxito:", response.data);
+                // Lógica adicional después de actualizar el producto
             })
             .catch((error) => {
-                console.error("Error al editar el producto:", error);
+                console.error("Error al actualizar el producto:", error);
                 // Lógica adicional en caso de error
             });
 
-        setNombreProducto("");
-        setPrecioProducto("");
-        setImageUrl("");
-        setCategoria("");
-        setDescripcionProducto("");
         setErrors({});
     };
 
@@ -140,18 +154,16 @@ export default function EditProduct() {
                     <form
                         className="flex flex-col gap-4 mt-4"
                         onSubmit={handleSubmit}>
-                        <div className=" w-full md:w-1/2 h-[15rem] rounded-lg border-2 border-dashed border-primary-blue bg-white">
+                        <div className="w-full md:w-1/2 h-[15rem] rounded-lg border-2 border-dashed border-primary-blue bg-white">
                             <img
                                 src={imageUrl}
                                 alt="Vista previa de la imagen"
-                                className=" w-full h-full"
+                                className="w-full h-full"
                             />
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="imageUrl">
-                                URL de la imagen:
-                            </label>
+                            <label htmlFor="imageUrl">URL de la imagen:</label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -170,9 +182,7 @@ export default function EditProduct() {
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="categoria">
-                                Categoría:
-                            </label>
+                            <label htmlFor="categoria">Categoría:</label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -191,7 +201,7 @@ export default function EditProduct() {
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="nombreProducto">
+                            <label htmlFor="nombreProducto">
                                 Nombre del producto:
                             </label>
                             <input
@@ -212,7 +222,7 @@ export default function EditProduct() {
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="precioProducto">
+                            <label htmlFor="precioProducto">
                                 Precio del producto:
                             </label>
                             <input
@@ -231,10 +241,9 @@ export default function EditProduct() {
                                 </p>
                             )}
                         </div>
+
                         <div>
-                            <label
-                                className=" hidden"
-                                htmlFor="descripcionProducto">
+                            <label htmlFor="descripcionProducto">
                                 Descripción del producto:
                             </label>
                             <textarea

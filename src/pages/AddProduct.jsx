@@ -149,7 +149,9 @@ export default function AddProduct() {
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="imageUrl">URL de la imagen:</label>
+                            <label className=" hidden" htmlFor="imageUrl">
+                                URL de la imagen:
+                            </label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -168,7 +170,9 @@ export default function AddProduct() {
                         </div>
 
                         <div>
-                            <label className=" hidden" htmlFor="categoria">Categoría:</label>
+                            <label className=" hidden" htmlFor="categoria">
+                                Categoría:
+                            </label>
                             <input
                                 className="block p-2.5 w-full font-Raleway font-normal text-base text-seconday-gray border border-primary-blue outline-none"
                                 type="text"
@@ -228,7 +232,9 @@ export default function AddProduct() {
                             )}
                         </div>
                         <div>
-                            <label className=" hidden" htmlFor="descripcionProducto">
+                            <label
+                                className=" hidden"
+                                htmlFor="descripcionProducto">
                                 Descripción del producto:
                             </label>
                             <textarea

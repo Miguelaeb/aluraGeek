@@ -105,24 +105,24 @@ export default function Admin() {
                                 </p>
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <svg
-                                        className=" fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
+                                        className="fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
                                         width="14"
                                         height="18"
                                         viewBox="0 0 14 18"
                                         fill="current"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        onClick={() =>
+                                            deleteProduct(starWarsItem.id)
+                                        }>
                                         <path
                                             d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z"
                                             fill="current"
-                                            onClick={() =>
-                                                deleteProduct(starWarsItem.id)
-                                            }
                                         />
                                     </svg>
-
-                                    <Link to={`/editProduct/${starWarsItem.id}`}>
+                                    <Link
+                                        to={`/editProduct/${starWarsItem.id}`}>
                                         <svg
-                                            className=" fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
+                                            className="fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
                                             width="19"
                                             height="19"
                                             viewBox="0 0 19 19"
@@ -155,24 +155,24 @@ export default function Admin() {
                                 </p>
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <svg
-                                        className=" fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
+                                        className="fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
                                         width="14"
                                         height="18"
                                         viewBox="0 0 14 18"
                                         fill="current"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        onClick={() =>
+                                            deleteProduct(consoleItem.id)
+                                        }>
                                         <path
                                             d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z"
                                             fill="current"
-                                            onClick={() =>
-                                                deleteProduct(consoleItem.id)
-                                            }
                                         />
                                     </svg>
 
-                                    <Link to="/editProduct">
+                                    <Link to={`/editProduct/${consoleItem.id}`}>
                                         <svg
-                                            className=" fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
+                                            className="fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
                                             width="19"
                                             height="19"
                                             viewBox="0 0 19 19"
@@ -205,24 +205,24 @@ export default function Admin() {
                                 </p>
                                 <div className="absolute right-4 top-4 flex gap-6">
                                     <svg
-                                        className=" fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
+                                        className="fill-white cursor-pointer hover:fill-[#ee5e5e] hover:scale-110 transition duration-300 ease-in-out"
                                         width="14"
                                         height="18"
                                         viewBox="0 0 14 18"
                                         fill="current"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        onClick={() =>
+                                            deleteProduct(variousItem.id)
+                                        }>
                                         <path
                                             d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z"
                                             fill="current"
-                                            onClick={() =>
-                                                deleteProduct(variousItem.id)
-                                            }
                                         />
                                     </svg>
 
-                                    <Link to="/editProduct">
+                                    <Link to={`/editProduct/${variousItem.id}`}>
                                         <svg
-                                            className=" fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
+                                            className="fill-white hover:fill-blue-500 hover:scale-110 transition duration-300 ease-in-out"
                                             width="19"
                                             height="19"
                                             viewBox="0 0 19 19"

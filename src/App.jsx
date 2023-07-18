@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/editProduct" element={<EditProduct />} />
+          <Route path="/editProduct/:id" element={<EditProduct />} />
           <Route path="/viewProduct/:id" element={<ViewProduct />} />
           <Route path="/viewAllStarWarsProducts" element={<ViewAllStarWarsProducts />} />
           <Route path="/viewAllConsoleProducts" element={<ViewAllConsoleProducts />} />
