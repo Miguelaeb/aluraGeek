@@ -29,7 +29,7 @@ It must be responsive to all devices
 
 ### Links
 
-[AluraGeek Live URL](alura-geek-dxci3wk1s-miguelaeb.vercel.app) <br>
+[AluraGeek Live URL](https://alura-geek-gamma-ivory.vercel.app/) <br>
 
 ### Built with
 
