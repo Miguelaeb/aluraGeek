@@ -73,7 +73,6 @@ export default function Admin() {
     return (
         <div>
             <SecondNavbar />
-
             <div className="bg-searchBar-background p-4 md:py-8">
                 <div className="flex flex-col md:justify-between gap-4 mb-8 lg:px-8 xl:p-0 xl:max-w-[80rem] mx-auto md:flex-row">
                     <h2 className="font-Raleway font-bold text-[1.375rem] text-seconday-gray flex items-center">

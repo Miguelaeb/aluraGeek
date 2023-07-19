@@ -49,7 +49,7 @@ export default function Contact() {
         <section className="w-full bg-section-background px-4 py-8 md:py-16">
             <div className="lg:max-w-[80rem] mx-auto flex flex-col justify-center gap-8 md:flex-row">
                 <div className="flex flex-col w-full md:w-1/2 xl:w-full items-center gap-4 xl:gap-40 md:items-start xl:flex-row">
-                    <Link to="/">
+                    <Link to="/" className=" text-center">
                         <svg
                             width="176"
                             height="51"
@@ -98,7 +98,7 @@ export default function Contact() {
                             />
                         </svg>
                     </Link>
-                    <div className="flex flex-col gap-4 md:w-64 md:items-start">
+                    <div className="flex flex-col text-center gap-4 md:w-64 md:items-start">
                         <Link className="font-Raleway font-medium text-base text-seconday-gray hover:underline">
                             Quiénes Somos
                         </Link>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function SecondNavbar() {
     return (
-        <>
             <div className=" m-4 lg:m-8">
                 <nav className=" xl:my-8 flex justify-between items-center xl:max-w-[80rem] mx-auto">
                     <div className=" flex justify-center items-center gap-8">
@@ -81,6 +80,5 @@ export default function SecondNavbar() {
                     </div>
                 </nav>
             </div>
-        </>
     );
 }
