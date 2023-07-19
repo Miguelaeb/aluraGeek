@@ -28,6 +28,7 @@ export default function EditProduct() {
             .catch((error) => {
                 console.error("Error fetching product data:", error);
             });
+            window.scrollTo(0, 0);
     }, [id]);
 
     const handleSubmit = (event) => {
@@ -200,7 +201,7 @@ export default function EditProduct() {
                             <img
                                 src={imageUrl}
                                 alt="Vista previa de la imagen"
-                                className="w-full h-full"
+                                className="w-full h-full object-cover"
                             />
                         </div>
 
