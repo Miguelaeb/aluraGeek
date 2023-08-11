@@ -99,7 +99,7 @@ export default function ViewAllVariousProducts() {
                 <div className="bg-searchBar-background p-4 md:py-8 lg:py-16">
                     <div className="max-w-[80rem] mx-auto">
                         <h2 className="font-Raleway font-bold text-xl xl:text-4xl text-seconday-gray">
-                            Consola
+                            Consolas
                         </h2>
                     </div>
 
