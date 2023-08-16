@@ -23,7 +23,7 @@ export default function Footer() {
                             <i className="fa-brands fa-twitter text-xl hover:text-primary-blue"></i>
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/miguel-evangelista-8458b9150/"
+                            href="https://www.linkedin.com/in/miguelaer/"
                             target="_blank"
                             rel="noreferrer">
                             <i className="fa-brands fa-linkedin-in text-xl hover:text-primary-blue"></i>
