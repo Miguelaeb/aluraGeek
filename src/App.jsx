@@ -9,22 +9,38 @@ import ViewProduct from "./pages/ViewProduct";
 import ViewAllStarWarsProducts from "./pages/ViewAllStarWarsProducts";
 import ViewAllConsoleProducts from "./pages/ViewAllConsoleProducts";
 import ViewAllVaiousProducts from "./pages/ViewAllVaiousProducts";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <div>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/editProduct/:id" element={<EditProduct />} />
-          <Route path="/viewProduct/:id" element={<ViewProduct />} />
-          <Route path="/viewAllStarWarsProducts" element={<ViewAllStarWarsProducts />} />
-          <Route path="/viewAllConsoleProducts" element={<ViewAllConsoleProducts />} />
-          <Route path="/viewAllVaiousProducts" element={<ViewAllVaiousProducts />} />
-        </Routes>
+        <main className="">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/addProduct" element={<AddProduct />} />
+            <Route path="/editProduct/:id" element={<EditProduct />} />
+            <Route path="/viewProduct/:id" element={<ViewProduct />} />
+            <Route
+              path="/viewAllStarWarsProducts"
+              element={<ViewAllStarWarsProducts />}
+            />
+            <Route
+              path="/viewAllConsoleProducts"
+              element={<ViewAllConsoleProducts />}
+            />
+            <Route
+              path="/viewAllVaiousProducts"
+              element={<ViewAllVaiousProducts />}
+            />
+          </Routes>
+          <Contact />
+        </main>
+
+        <Footer />
       </Router>
     </div>
   );
